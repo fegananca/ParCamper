@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import Map from './components/Map';
+import { useState, useEffect } from 'react';
+import { db } from './data';
 
 function App() {
+  const [places, setPlaces] = useState([]);
+
+  useEffect(() => {
+    const locations = db.hits.map((data) => ({
+      id: data._id,
+      photo: data._source.thumbnail,
+      title: data._source.subtitle,
+      numberOfReviews: data._source.filters.numberOfReviews,
+      rating: data._source.filters.rating,
+      lat: data._source.location.lat,
+      lng: data._source.location.lon,
+    }));
+
+    setPlaces(locations);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Map places={places}></Map>
     </div>
   );
 }
