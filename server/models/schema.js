@@ -1,15 +1,14 @@
 const { mongoose } = require('./db');
 
 const placesList = new mongoose.Schema({
-  id: { type: String },
-  title: { type: String },
-  numberOfReviews: { type: Number },
-  rating: { type: Number },
-  lat: { type: Number },
-  lon: { type: Number },
-  price: { type: Number },
+  _id: { String },
+  _source: {
+    subtitle: { String },
+    location: { lon: { Number }, lat: { Number } },
+    filters: { numberOfReviews: { Number }, rating: { Number } },
+  },
 });
 
-const topics = mongoose.model('Placeslist', placesList);
+const places = mongoose.model('hits', placesList);
 
-module.exports = topics;
+module.exports = places;
