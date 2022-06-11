@@ -8,6 +8,8 @@ import {
 import { useState } from 'react';
 import LocationInfo from './LocationInfo';
 import Search from './Search';
+import ButtonAdd from './ButtonAdd';
+import parking from '../images/parking.png';
 
 const center = {
   lat: 40.4637,
@@ -15,11 +17,12 @@ const center = {
 };
 
 const containerStyle = {
-  width: '70vw',
-  height: '70vw',
+  width: '60vw',
+  height: '60vw',
 };
 
 const Map = ({ places }) => {
+  const [locationInfo, setLocationInfo] = useState(null);
   const mapRef = React.useRef();
   const onMapLoad = React.useCallback((map) => {
     mapRef.current = map;
@@ -32,7 +35,6 @@ const Map = ({ places }) => {
     [mapRef]
   );
 
-  const [locationInfo, setLocationInfo] = useState(null);
   // const { isLoaded } = useJsApiLoader({
   //   id: 'google-map-script',
   //   googleMapsApiKey: 'AIzaSyAI65iBCALEFGedyf-02CjiOtoVQXZxaF8',
@@ -43,8 +45,12 @@ const Map = ({ places }) => {
 
   return (
     <>
-      <Search panTo={panTo} />
+      <div className="header">
+        <Search panTo={panTo} />
+        <ButtonAdd></ButtonAdd>
+      </div>
       <GoogleMap
+        mapContainerClassName="map"
         mapContainerStyle={containerStyle}
         center={center}
         zoom={6}
@@ -52,25 +58,25 @@ const Map = ({ places }) => {
       >
         {places.map((data) => (
           <Marker
-            key={data.id}
+            key={data._id}
             position={{
-              lat: data.lat,
-              lng: data.lng,
+              lat: data._source.location.lat,
+              lng: data._source.location.lon,
             }}
-            // icon={{
-            //   url: `my-app/src/images/parking.png`,
-            //   // origin: new window.google.maps.Point(0, 0),
-            //   // anchor: new window.google.maps.Point(15, 15),
-            //   // scaledSize: new window.google.maps.Size(30, 30),
-            // }}
+            icon={{
+              url: parking,
+              origin: new window.google.maps.Point(0, 0),
+              anchor: new window.google.maps.Point(15, 15),
+              scaledSize: new window.google.maps.Size(30, 30),
+            }}
             onClick={() =>
               setLocationInfo({
-                photo: data.photo,
-                title: data.title,
-                numberOfReviews: data.numberOfReviews,
-                rating: data.rating,
-                lat: data.lat,
-                lng: data.lng,
+                photo: data._source.thumbnail,
+                title: data._source.subtitle,
+                numberOfReviews: data._source.filters.numberOfReviews,
+                rating: data._source.filters.rating,
+                lat: data._source.location.lat,
+                lng: data._source.location.lon,
               })
             }
           />

@@ -1,10 +1,16 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
 }
 
 .map {
-  width: 50vw;
-  height: 50vw;
+  margin-left: 30px;
+  border-radius: 10px;
 }
 
 .location-icon {
@@ -24,4 +30,39 @@ body {
 
 .info-withIcon {
   font-size: 0.5vw;
+}
+
+.header {
+  display: flex;
+  padding: 20px;
+  width: 70%;
+  justify-content: space-between;
+  width: 60%;
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-box {
+  border-radius: 20px;
+  border-color: lightgray;
+  padding: 10px;
+  width: 300px;
+  margin-left: 30px;
+}
+
+.search-icon {
+  position: absolute;
+  right: 6%;
+  top: 27%;
+  color: grey;
+}
+
+.button-add {
+  margin-left: 30px;
+  border-radius: 20px;
+  border-color: lightgray;
+  padding: 10px;
+  width: 100px;
 }

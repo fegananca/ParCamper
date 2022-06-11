@@ -11,6 +11,7 @@ import {
   ComboboxList,
 } from '@reach/combobox';
 import '@reach/combobox/styles.css';
+import { Icon } from '@iconify/react';
 
 const Search = ({ panTo }) => {
   const {
@@ -26,14 +27,6 @@ const Search = ({ panTo }) => {
     },
   });
 
-  // const handleInput = (e) => {
-  //   setValue(e.target.value);
-  // };
-
-  // const handleSelect = async (address) => {
-  //   setValue(address, false);
-  //   clearSuggestions();
-  // };
   return (
     <div className="search">
       <Combobox
@@ -49,14 +42,18 @@ const Search = ({ panTo }) => {
           }
         }}
       >
-        <ComboboxInput
-          value={value}
-          onChange={(e) => {
-            setValue(e.target.value);
-          }}
-          disabled={!ready}
-          placeholder="Enter an address"
-        />
+        <div className="search-container">
+          <ComboboxInput
+            value={value}
+            onChange={(e) => {
+              setValue(e.target.value);
+            }}
+            disabled={!ready}
+            placeholder="Where to?"
+            className="search-box"
+          />
+          <Icon icon="mdi:magnify" className="search-icon" />
+        </div>
         <ComboboxPopover>
           <ComboboxList>
             {status === 'OK' &&

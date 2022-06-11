@@ -135,3 +135,144 @@ const Map = ({ places }) => {
 };
 
 export default Map;
+
+
+<form className="add-form">
+        <div className="form-control">
+          <label>Vehicle type</label>
+          <div className="type-car">
+            <input
+              type="checkbox"
+              id="micro"
+              onChange={(e) => setVehicle(e.target.value)}
+            ></input>
+            <span>Micro</span>
+          </div>
+          <div className="type-car">
+            <input
+              type="checkbox"
+              id="small"
+              onChange={(e) => setVehicle(e.target.value)}
+            ></input>
+            <span>Small</span>
+          </div>
+          <div className="type-car">
+            <input
+              type="checkbox"
+              id="medium"
+              onChange={(e) => setVehicle(e.target.value)}
+            ></input>
+            <span>Medium</span>
+          </div>
+          <div className="type-car">
+            <input
+              type="checkbox"
+              id="large"
+              onChange={(e) => setVehicle(e.target.value)}
+            ></input>
+            <span>Large</span>
+          </div>
+          <div className="type-car">
+            <input
+              type="checkbox"
+              id="box"
+              onChange={(e) => setVehicle(e.target.value)}
+            ></input>
+            <span>Box</span>
+          </div>
+
+          <div className="form-control">
+            <label>Type of place</label>
+            <div className="type-place">
+              <input
+                type="checkbox"
+                id="free-parking"
+                onChange={(e) => setTypePlace(e.target.value)}
+              ></input>
+              <span>Free parking</span>
+            </div>
+            <div className="type-place">
+              <input
+                type="checkbox"
+                id="paid-parking"
+                onChange={(e) => setTypePlace(e.target.value)}
+              ></input>
+              <span>Paid parking</span>
+            </div>
+            <div className="type-place">
+              <input
+                type="checkbox"
+                id="service-area"
+                onChange={(e) => setTypePlace(e.target.value)}
+              ></input>
+              <span>Service area</span>
+            </div>
+            <div className="type-place">
+              <input
+                type="checkbox"
+                id="campsite"
+                onChange={(e) => setTypePlace(e.target.value)}
+              ></input>
+              <span>Campsite</span>
+            </div>
+          </div>
+
+          <div className="form-control">
+            <label>Provided services</label>
+            <div className="services">
+              <input
+                type="checkbox"
+                id="waste water"
+                onChange={(e) => setServices(e.target.value)}
+              ></input>
+              <span>Water waste</span>
+            </div>
+            <div className="services">
+              <input
+                type="checkbox"
+                id="black-water"
+                onChange={(e) => setServices(e.target.value)}
+              ></input>
+              <span>Black water</span>
+            </div>
+            <div className="services">
+              <input
+                type="checkbox"
+                id="Toilet"
+                onChange={(e) => setServices(e.target.value)}
+              ></input>
+              <span>Toilet</span>
+            </div>
+            <div className="services">
+              <input
+                type="checkbox"
+                id="Electricity"
+                onChange={(e) => setServices(e.target.value)}
+              ></input>
+              <span>Electricity</span>
+            </div>
+            <div className="services">
+              <input
+                type="checkbox"
+                id="Wi-fi"
+                onChange={(e) => setServices(e.target.value)}
+              ></input>
+              <span>Wi-fi</span>
+            </div>
+            <div className="services">
+              <input
+                type="checkbox"
+                id="3g-4g"
+                onChange={(e) => setServices(e.target.value)}
+              ></input>
+              <span>3G/4G Internet</span>
+            </div>
+          </div>
+
+          {/* <button>
+            <img src={microCamper} alt="cars" onClick={'click'}></img>
+          </button> */}
+
+          <input style={{ cursor: 'pointer' }} type="submit" value="Next" />
+        </div>
+      </form>
