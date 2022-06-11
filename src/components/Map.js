@@ -75,6 +75,7 @@ const Map = ({ places }) => {
                 title: data._source.subtitle,
                 numberOfReviews: data._source.filters.numberOfReviews,
                 rating: data._source.filters.rating,
+                review: data._source.filters.review,
                 lat: data._source.location.lat,
                 lng: data._source.location.lon,
               })

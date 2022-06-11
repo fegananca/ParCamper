@@ -1,4 +1,5 @@
 const places = require('../models/schema');
+const { cloudinary } = require('../utils/cloudinary');
 
 const getPlaces = async (req, res) => {
   try {
@@ -11,23 +12,23 @@ const getPlaces = async (req, res) => {
 };
 
 const postPlaces = async (req, res) => {
-  console.log(req.body);
   try {
     let result = await places.create({
       _source: {
-        subtitle: req.body._source.subtitle,
-
+        subtitle: req.body.subtitle,
         location: {
-          lat: req.body._source.location.lat,
-          lon: req.body._source.location.lon,
+          lat: req.body.location.lat,
+          lon: req.body.location.lon,
         },
         filters: {
-          numberOfReviews: req.body._source.filters.numberOfReviews,
-          rating: req.body._source.filters.rating,
-          prices: req.body._source.filters.prices,
+          // numberOfReviews: req.body.numberOfReviews,
+          rating: req.body.rating,
+          review: req.body.review,
+          // prices: req.body.prices,
         },
       },
     });
+    console.log(result);
     res.status(200);
     res.send(result);
   } catch (error) {
@@ -36,4 +37,19 @@ const postPlaces = async (req, res) => {
   }
 };
 
-module.exports = { getPlaces, postPlaces };
+const postImages = async (req, res) => {
+  try {
+    const result = await cloudinary.uploader.upload(req.body.file, {
+      upload_preset: 'b42bsya7',
+    });
+    console.log(result);
+    res.status(200);
+    // res.send(result);
+    console.log(result);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Something went wrong' });
+  }
+};
+
+module.exports = { getPlaces, postPlaces, postImages };

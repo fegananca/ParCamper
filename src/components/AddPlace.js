@@ -1,7 +1,9 @@
 import { GoogleMap } from '@react-google-maps/api';
 import Search from './Search';
+import Rating from './Rating';
 import React, { useState } from 'react';
 import FindMe from './FindMe';
+import Upload from './Upload';
 // import microCamper from '../images/Micro.png';
 
 const center = {
@@ -15,11 +17,10 @@ const containerStyle = {
 };
 
 const AddPlace = ({ onAdd }) => {
-  const [coordinates, setCoordinates] = useState('');
+  const [coordinates, setCoordinates] = useState(null);
   const [subtitle, setSubtitle] = useState('');
-  const [typePlace, setTypePlace] = useState('');
-  const [services, setServices] = useState('');
-  // const [disabled, Setdisabled] = useState(true);
+  const [rating, setRating] = useState(0);
+  const [review, setReview] = useState('');
 
   const mapRef = React.useRef();
   const onMapLoad = React.useCallback((map) => {
@@ -43,22 +44,20 @@ const AddPlace = ({ onAdd }) => {
   );
 
   const onClickMap = (coordinates) => {
-    setCoordinates((current) => [
-      {
-        lat: coordinates.latLng.lat(),
-        lon: coordinates.latLng.lng(),
-      },
-      ...current,
-    ]);
+    setCoordinates({
+      lat: coordinates.latLng.lat(),
+      lon: coordinates.latLng.lng(),
+    });
   };
 
   const onSubmit = (e) => {
-    // e.preventDefault();
-    onAdd({ location: coordinates, vehicle: 'hello', typePlace, services });
+    e.preventDefault();
+    onAdd({ location: coordinates, subtitle, rating, review });
     setSubtitle('');
-    setTypePlace('');
-    setServices('');
+    setRating(0);
+    setReview('');
   };
+
   return (
     <>
       <FindMe panTo={panToFind} />
@@ -71,6 +70,7 @@ const AddPlace = ({ onAdd }) => {
         onClick={onClickMap}
       ></GoogleMap>
       <div className="form-container">
+        <Upload></Upload>
         <form className="add-form" onSubmit={onSubmit}>
           <div className="form-control">
             <input
@@ -80,6 +80,17 @@ const AddPlace = ({ onAdd }) => {
               onChange={(e) => setSubtitle(e.target.value)}
             />
           </div>
+          <Rating
+            className="rating"
+            rating={rating}
+            onRating={(rate) => setRating(rate)}
+          ></Rating>
+          <input
+            type="text"
+            placeholder="Please write a review"
+            value={review}
+            onChange={(e) => setReview(e.target.value)}
+          />
           <button onClick={() => onSubmit()}>Submit</button>
         </form>
       </div>

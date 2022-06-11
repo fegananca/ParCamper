@@ -10,6 +10,7 @@ const placesList = new mongoose.Schema({
     },
     filters: {
       numberOfReviews: Number,
+      review: [{ type: String, required: false }],
       rating: Number,
       // poiType: { type: String, required: false },
       prices: [
@@ -29,7 +30,7 @@ const placesList = new mongoose.Schema({
     },
     // translatedPermalinks: [{ type: String, required: false }],
     // sitecode: { type: Number, required: false },
-    // thumbnail: { type: String, required: false },
+    thumbnail: { type: String, required: false },
     // id: { type: Number, required: false },
     // type: { type: Number, required: false },
     // title: { type: Number, required: false },

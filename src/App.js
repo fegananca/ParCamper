@@ -21,6 +21,7 @@ function App() {
       body: JSON.stringify(place),
     });
     const data = await res.json();
+
     setPlaces([...places, data]);
   };
 
