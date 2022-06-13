@@ -1,26 +1,24 @@
-import { GoogleMap } from '@react-google-maps/api';
+import { GoogleMap, Marker } from '@react-google-maps/api';
 import Search from './Search';
-import Rating from './Rating';
 import React, { useState } from 'react';
 import FindMe from './FindMe';
-import Upload from './Upload';
-// import microCamper from '../images/Micro.png';
-
+import './addPlace.css';
+import { useNavigate } from 'react-router-dom';
+import parking from '../images/clarity_campervan-solid.png';
 const center = {
   lat: 40.4637,
   lng: -3.7492,
 };
 
 const containerStyle = {
-  width: '50vw',
-  height: '50vw',
+  width: '100vw',
+  height: '35vw',
 };
 
-const AddPlace = ({ onAdd }) => {
-  const [coordinates, setCoordinates] = useState(null);
-  const [subtitle, setSubtitle] = useState('');
-  const [rating, setRating] = useState(0);
-  const [review, setReview] = useState('');
+const AddPlace = () => {
+  const [coordinates, setCoordinates] = useState('');
+
+  const navigate = useNavigate();
 
   const mapRef = React.useRef();
   const onMapLoad = React.useCallback((map) => {
@@ -43,58 +41,62 @@ const AddPlace = ({ onAdd }) => {
     [mapRef]
   );
 
-  const onClickMap = (coordinates) => {
+  const setMarker = [coordinates];
+  console.log(setMarker, 'setMarket');
+
+  const onClickMap = (event) => {
     setCoordinates({
-      lat: coordinates.latLng.lat(),
-      lon: coordinates.latLng.lng(),
+      lat: event.latLng.lat(),
+      lon: event.latLng.lng(),
     });
   };
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    onAdd({ location: coordinates, subtitle, rating, review });
-    setSubtitle('');
-    setRating(0);
-    setReview('');
+  const toAddForm = () => {
+    navigate('/add-next', { state: coordinates });
   };
 
   return (
-    <>
+    <div className="container-add">
       <FindMe panTo={panToFind} />
-      <Search panTo={panTo}></Search>
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={6}
-        onLoad={onMapLoad}
-        onClick={onClickMap}
-      ></GoogleMap>
-      <div className="form-container">
-        <Upload></Upload>
-        <form className="add-form" onSubmit={onSubmit}>
-          <div className="form-control">
-            <input
-              type="text"
-              placeholder="Brief description of the place"
-              value={subtitle}
-              onChange={(e) => setSubtitle(e.target.value)}
-            />
-          </div>
-          <Rating
-            className="rating"
-            rating={rating}
-            onRating={(rate) => setRating(rate)}
-          ></Rating>
-          <input
-            type="text"
-            placeholder="Please write a review"
-            value={review}
-            onChange={(e) => setReview(e.target.value)}
-          />
-          <button onClick={() => onSubmit()}>Submit</button>
-        </form>
+      <div className="search-header">
+        <Search panTo={panTo}></Search>
       </div>
-    </>
+      <div className="add-place-container">
+        <GoogleMap
+          mapContainerClassName="map-add"
+          mapContainerStyle={containerStyle}
+          center={center}
+          zoom={6}
+          onLoad={onMapLoad}
+          onClick={onClickMap}
+        >
+          {setMarker &&
+            setMarker.map((coord) => {
+              console.log(coord);
+              return (
+                <Marker
+                  key={JSON.stringify(coord)}
+                  position={{
+                    lat: parseFloat(coord.lat),
+                    lng: parseFloat(coord.lng),
+                  }}
+                  icon={{
+                    url: parking,
+                    origin: new window.google.maps.Point(0, 0),
+                    anchor: new window.google.maps.Point(15, 15),
+                    scaledSize: new window.google.maps.Size(30, 30),
+                  }}
+                ></Marker>
+              );
+            })}
+        </GoogleMap>
+        <button
+          type="button"
+          className="btn-next"
+          onClick={() => toAddForm()}
+        ></button>
+      </div>
+    </div>
   );
 };
 

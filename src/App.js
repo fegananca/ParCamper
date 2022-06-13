@@ -1,9 +1,8 @@
 import Map from './components/Map';
 import { useState, useEffect } from 'react';
 import AddPlace from './components/AddPlace';
+import AddForm from './components/AddForm';
 import { Routes, Route } from 'react-router-dom';
-
-// import { db } from './data';
 
 function App() {
   const [places, setPlaces] = useState([]);
@@ -41,10 +40,11 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <Routes>
         <Route path="/" element={<Map places={places} />} />
-        <Route path="/add" element={<AddPlace onAdd={addPlaces} />} />
+        <Route path="/add" element={<AddPlace />} />
+        <Route path="/add-next" element={<AddForm onAdd={addPlaces} />} />
       </Routes>
     </div>
   );

@@ -6,13 +6,13 @@ const LocationInfo = ({ info }) => {
       <img src={info.photo} alt="place to park"></img>
       <div className="info-title">{info.title}</div>
       <div className="info-withIcon">
-        <div className="info-review">
-          {info.numberOfReviews}
-          <Icon icon="dashicons:admin-comments" />
-        </div>
         <div className="info-rating">
+          <Icon id="icon-review" icon="mdi:star" />
           {info.rating}
-          <Icon icon="mdi:star" />
+        </div>
+        <div className="info-review">
+          <Icon id="icon-comments" icon="dashicons:admin-comments" />
+          {info.numberOfReviews}
         </div>
       </div>
     </div>

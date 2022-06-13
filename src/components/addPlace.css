@@ -1,0 +1,143 @@
+.search-header {
+  display: flex;
+  padding: 20px;
+  justify-content: space-evenly;
+}
+
+.map-add {
+  margin-top: 1%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.next-header {
+  padding: 50px;
+}
+
+.form-container {
+  margin-top: 1%;
+}
+
+.title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 80%;
+}
+
+#fileInput {
+  display: none;
+}
+
+.label-upload {
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  display: flex;
+  color: grey;
+  border-radius: 10px;
+  border-color: transparent;
+  box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.3);
+  width: 225px;
+  align-items: center;
+  margin-top: 5%;
+  /* margin-bottom: 10%; */
+  margin-left: 15%;
+}
+
+#icon-upload {
+  border-radius: 10px;
+  background-color: #ecdd7b;
+  padding: 5%;
+}
+
+.add-subtitle {
+  margin-top: 10px;
+  width: 30%;
+  height: 100px;
+  border-radius: 10px;
+  border-color: transparent;
+  box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.3);
+  font-family: 'Poppins', sans-serif;
+  font-size: small;
+  color: grey;
+  margin-bottom: 10%;
+  margin-left: 10%;
+  font-size: 15px;
+}
+
+.brief-desc {
+  display: flex;
+  padding-bottom: 2%;
+}
+
+.label-form {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  margin-left: 2.5%;
+  margin-top: 2%;
+}
+
+.rating {
+  margin-top: 1%;
+  margin-left: 2.5%;
+  margin-bottom: 1%;
+  cursor: pointer;
+}
+.add-review {
+  border-radius: 10px;
+  width: 55vw;
+  height: 100px;
+  border-color: transparent;
+  box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.3);
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  color: grey;
+  margin-left: 2.5%;
+}
+
+#form-submit {
+  font-family: 'Poppins', sans-serif;
+  border-color: transparent;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #ecdd7b;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100px;
+  color: #555555;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 2.5%;
+}
+
+.btn-next {
+  border: transparent;
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+  background-color: #ecdd7b;
+  width: 100px;
+  padding: 8px;
+  font-family: 'Poppins', sans-serif;
+  color: grey;
+  margin-left: 10px;
+}
+
+.btn-next:hover {
+  transform: scale(1.1);
+  color: rgb(60, 58, 58);
+  font-weight: bold;
+}
+
+#form-submit:hover {
+  transform: scale(1.1);
+  color: rgb(60, 58, 58);
+  font-weight: bold;
+}
+.label-upload:hover {
+  transform: scale(1.1);
+}
+.img-input {
+  margin-top: 5%;
+  margin-left: 3%;
+}

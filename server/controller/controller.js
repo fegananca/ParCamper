@@ -1,5 +1,6 @@
 const places = require('../models/schema');
-const { cloudinary } = require('../utils/cloudinary');
+const { uploadFile, getFileStream } = require('../s3');
+// const { cloudinary } = require('../utils/cloudinary');
 
 const getPlaces = async (req, res) => {
   try {
@@ -26,8 +27,10 @@ const postPlaces = async (req, res) => {
           review: req.body.review,
           // prices: req.body.prices,
         },
+        thumbnail: req.body.thumbnail,
       },
     });
+
     console.log(result);
     res.status(200);
     res.send(result);
@@ -37,19 +40,27 @@ const postPlaces = async (req, res) => {
   }
 };
 
+const getImages = async (req, res) => {
+  const key = req.params.key;
+  const readStream = getFileStream(key);
+  readStream.pipe(res);
+};
+
 const postImages = async (req, res) => {
   try {
-    const result = await cloudinary.uploader.upload(req.body.file, {
-      upload_preset: 'b42bsya7',
-    });
-    console.log(result);
+    const file = req.file;
+    const result = await uploadFile(file);
+    // const postimage = await places.create({
+    //   _source: {
+    //     thumbnail: result.Location,
+    //   },
+    // });
     res.status(200);
-    // res.send(result);
-    console.log(result);
+    res.send(result.Location);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Something went wrong' });
   }
 };
 
-module.exports = { getPlaces, postPlaces, postImages };
+module.exports = { getPlaces, postPlaces, postImages, getImages };

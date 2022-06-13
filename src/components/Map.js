@@ -9,7 +9,7 @@ import { useState } from 'react';
 import LocationInfo from './LocationInfo';
 import Search from './Search';
 import ButtonAdd from './ButtonAdd';
-import parking from '../images/parking.png';
+import parking from '../images/clarity_campervan-solid.png';
 
 const center = {
   lat: 40.4637,
@@ -17,8 +17,8 @@ const center = {
 };
 
 const containerStyle = {
-  width: '60vw',
-  height: '60vw',
+  width: '100vw',
+  height: '100vw',
 };
 
 const Map = ({ places }) => {
@@ -44,16 +44,17 @@ const Map = ({ places }) => {
   // if (!isLoaded) return 'Loading...';
 
   return (
-    <>
+    <div className="container-map">
       <div className="header">
         <Search panTo={panTo} />
         <ButtonAdd></ButtonAdd>
       </div>
+      <div className="search-bar-icons"></div>
       <GoogleMap
         mapContainerClassName="map"
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={6}
+        zoom={7}
         onLoad={onMapLoad}
       >
         {places.map((data) => (
@@ -84,16 +85,18 @@ const Map = ({ places }) => {
         ))}
         {locationInfo ? (
           <InfoWindow
+            options={{ maxWidth: 150 }}
             onCloseClick={() => {
               setLocationInfo(null);
             }}
+            //
             position={{ lat: locationInfo.lat, lng: locationInfo.lng }}
           >
             {locationInfo && <LocationInfo info={locationInfo} />}
           </InfoWindow>
         ) : null}
       </GoogleMap>
-    </>
+    </div>
   );
 };
 

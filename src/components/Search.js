@@ -11,7 +11,7 @@ import {
   ComboboxList,
 } from '@reach/combobox';
 import '@reach/combobox/styles.css';
-import { Icon } from '@iconify/react';
+import searchIcon from '../images/arcticons_xiaoyuan-search.png';
 
 const Search = ({ panTo }) => {
   const {
@@ -52,7 +52,7 @@ const Search = ({ panTo }) => {
             placeholder="Where to?"
             className="search-box"
           />
-          <Icon icon="mdi:magnify" className="search-icon" />
+          <img src={searchIcon} alt="icon-search" className="search-icon"></img>
         </div>
         <ComboboxPopover>
           <ComboboxList>

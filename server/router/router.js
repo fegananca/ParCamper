@@ -1,16 +1,17 @@
 const router = require('express').Router();
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
+
 const {
   getPlaces,
   postPlaces,
   postImages,
+  getImages,
 } = require('../controller/controller.js');
 
 router.get('/places', getPlaces);
-// router.get('/topics/:id', getTopicsByid);
-// router.delete('/topics/:id', removeTopic);
 router.post('/places', postPlaces);
-// router.put('/topics/:id/up', voteUp);
-// router.put('/topics/:id/down', voteDown);
-router.post('/images', postImages);
+// router.get('/images', getImages);
+router.post('/images', upload.single('image'), postImages);
 
 module.exports = router;

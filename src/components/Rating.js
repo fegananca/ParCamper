@@ -28,7 +28,7 @@ const Rating = ({ count, rating, color, onRating }) => {
         />
       ));
   }, [count, rating, hoverRating]);
-  return <div>{starRating}</div>;
+  return <div className="rating">{starRating}</div>;
 };
 
 Rating.propTypes = {

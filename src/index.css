@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,8 +10,13 @@ body {
   margin: 0;
 }
 
+.container-map {
+  overflow: hidden;
+  height: 100vh;
+}
+
 .map {
-  margin-left: 30px;
+  margin-top: 20px;
   border-radius: 10px;
 }
 
@@ -20,24 +27,45 @@ body {
 .location-info img {
   width: 100%;
   border-radius: 10px;
+  align-items: center;
 }
 
 .location-info {
-  height: 10%;
-  width: 10%;
+  height: auto;
+  width: auto;
   border-radius: 10px;
+  background-color: white;
 }
 
 .info-withIcon {
-  font-size: 0.5vw;
+  display: flex;
+  justify-content: left;
+  font-size: 1vw;
+  font-family: 'Poppins', sans-serif;
+  margin-left: 1.5%;
+  color: rgb(108, 106, 106);
+}
+
+#icon-comments {
+  margin-top: 3px;
+  margin-left: 10px;
+}
+
+#icon-review {
+  margin-top: 3px;
+}
+
+.info-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  color: black;
+  margin-left: 1%;
 }
 
 .header {
   display: flex;
   padding: 20px;
-  width: 70%;
-  justify-content: space-between;
-  width: 60%;
+  justify-content: space-evenly;
 }
 
 .search-container {
@@ -46,23 +74,50 @@ body {
 
 .search-box {
   border-radius: 20px;
-  border-color: lightgray;
+  border-color: transparent;
   padding: 10px;
   width: 300px;
   margin-left: 30px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 90%;
 }
 
 .search-icon {
   position: absolute;
   right: 6%;
-  top: 27%;
+  top: 15%;
   color: grey;
+  width: 25px;
 }
 
-.button-add {
-  margin-left: 30px;
+.button-container {
+  position: relative;
+  border: transparent;
   border-radius: 20px;
-  border-color: lightgray;
-  padding: 10px;
-  width: 100px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+  background-color: transparent;
+  width: 150px;
+}
+
+.add-icon {
+  background-color: #ecdd7b;
+  position: absolute;
+  right: 72%;
+  top: 8%;
+  border-radius: 20px;
+  height: 90%;
+}
+
+.search-bar-icons {
+  display: flex;
+  padding: 20px;
+  width: 90%;
+  justify-content: first baseline;
+}
+#add-place {
+  font-family: 'Poppins', sans-serif;
+  margin-left: 30px;
+  color: grey;
 }
