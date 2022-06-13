@@ -56,7 +56,7 @@ const Upload = ({ setImage }) => {
     <div>
       <label className="label-upload" htmlFor="fileInput">
         <img id="icon-upload" src={iconimg} alt="icon to upload"></img>
-        Upload an image
+        <p id="upload-label">Upload an image</p>
         <form onSubmit={handleSubmitFile} className="form">
           <input
             id="fileInput"

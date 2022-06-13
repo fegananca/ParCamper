@@ -1,7 +1,6 @@
 .search-header {
   display: flex;
   padding: 20px;
-  justify-content: space-evenly;
 }
 
 .map-add {
@@ -49,6 +48,10 @@
   padding: 5%;
 }
 
+#upload-label {
+  margin-left: 10%;
+}
+
 .add-subtitle {
   margin-top: 10px;
   width: 30%;
@@ -62,6 +65,11 @@
   margin-bottom: 10%;
   margin-left: 10%;
   font-size: 15px;
+}
+
+.add-subtitle::placeholder {
+  padding-top: 3%;
+  padding-left: 5%;
 }
 
 .brief-desc {
@@ -140,4 +148,10 @@
 .img-input {
   margin-top: 5%;
   margin-left: 3%;
+}
+
+.locate {
+  background-color: transparent;
+  border-radius: 20px;
+  border: transparent;
 }

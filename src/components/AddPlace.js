@@ -42,7 +42,6 @@ const AddPlace = () => {
   );
 
   const setMarker = [coordinates];
-  console.log(setMarker, 'setMarket');
 
   const onClickMap = (event) => {
     setCoordinates({
@@ -57,8 +56,8 @@ const AddPlace = () => {
 
   return (
     <div className="container-add">
-      <FindMe panTo={panToFind} />
       <div className="search-header">
+        <FindMe panTo={panToFind} />
         <Search panTo={panTo}></Search>
       </div>
       <div className="add-place-container">
@@ -90,11 +89,9 @@ const AddPlace = () => {
               );
             })}
         </GoogleMap>
-        <button
-          type="button"
-          className="btn-next"
-          onClick={() => toAddForm()}
-        ></button>
+        <button type="button" className="btn-next" onClick={() => toAddForm()}>
+          Next
+        </button>
       </div>
     </div>
   );

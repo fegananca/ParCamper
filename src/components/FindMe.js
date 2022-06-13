@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon } from '@iconify/react';
+import compass from '../images/clarity_compass-solid.png';
 
 const FindMe = ({ panTo }) => {
   return (
@@ -17,7 +17,7 @@ const FindMe = ({ panTo }) => {
         );
       }}
     >
-      <Icon icon="map:compass" />
+      <img src={compass} alt="submit button" className="findme-icon"></img>
     </button>
   );
 };
