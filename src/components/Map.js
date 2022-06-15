@@ -10,6 +10,7 @@ import LocationInfo from './LocationInfo';
 import Search from './Search';
 import ButtonAdd from './ButtonAdd';
 import parking from '../images/clarity_campervan-solid.png';
+import { Icon } from '@iconify/react';
 
 const center = {
   lat: 40.4637,
@@ -46,10 +47,27 @@ const Map = ({ places }) => {
   return (
     <div className="container-map">
       <div className="header">
+        {/* <Icon
+          icon="clarity:campervan-solid"
+          width={90}
+          height={90}
+          className="icon-logo-map"
+        /> */}
         <Search panTo={panTo} />
         <ButtonAdd></ButtonAdd>
       </div>
-      <div className="search-bar-icons"></div>
+      <div className="search-bar-icons">
+        <Icon icon="icon-park-outline:mountain" width={50} height={40} />
+        <Icon icon="fa-solid:umbrella-beach" width={50} height={40} />
+        <Icon icon="ic:twotone-hiking" width={50} height={40} />
+        <Icon
+          icon="emojione-monotone:person-mountain-biking"
+          width={50}
+          height={40}
+        />
+        <Icon icon="healthicons:electricity-outline" width={50} height={40} />
+        <Icon icon="iconoir:internet" width={50} height={40} />
+      </div>
       <GoogleMap
         mapContainerClassName="map"
         mapContainerStyle={containerStyle}

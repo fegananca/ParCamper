@@ -1,11 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
 import './addPlace.css';
-import iconimg from '../images/uil_image-upload.png';
+import { Icon } from '@iconify/react';
 
-const Upload = ({ setImage }) => {
+const Upload = ({ setImage, previewSource, setPreviewSource }) => {
   const [fileInputState, setFileInputState] = useState('');
-  const [previewSource, setPreviewSource] = useState('');
+  // const [previewSource, setPreviewSource] = useState('');
   const [selectedFile, setSelectedFile] = useState();
 
   const handleFileInputChange = (e) => {
@@ -53,9 +53,14 @@ const Upload = ({ setImage }) => {
   };
 
   return (
-    <div>
+    <>
       <label className="label-upload" htmlFor="fileInput">
-        <img id="icon-upload" src={iconimg} alt="icon to upload"></img>
+        <Icon
+          className="icon-upload"
+          icon="uil:image-upload"
+          height={100}
+          width={100}
+        />
         <p id="upload-label">Upload an image</p>
         <form onSubmit={handleSubmitFile} className="form">
           <input
@@ -74,10 +79,10 @@ const Upload = ({ setImage }) => {
           className="img-input"
           src={previewSource}
           alt="chosen"
-          style={{ height: '250px' }}
+          style={{ height: '270px' }}
         />
       )}
-    </div>
+    </>
   );
 };
 

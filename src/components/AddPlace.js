@@ -12,7 +12,7 @@ const center = {
 
 const containerStyle = {
   width: '100vw',
-  height: '35vw',
+  height: '40vw',
 };
 
 const AddPlace = () => {
@@ -51,7 +51,11 @@ const AddPlace = () => {
   };
 
   const toAddForm = () => {
-    navigate('/add-next', { state: coordinates });
+    if (!coordinates) {
+      alert('Please, enter a location.');
+    } else {
+      navigate('/add-next', { state: coordinates });
+    }
   };
 
   return (
@@ -71,13 +75,12 @@ const AddPlace = () => {
         >
           {setMarker &&
             setMarker.map((coord) => {
-              console.log(coord);
               return (
                 <Marker
                   key={JSON.stringify(coord)}
                   position={{
                     lat: parseFloat(coord.lat),
-                    lng: parseFloat(coord.lng),
+                    lng: parseFloat(coord.lon),
                   }}
                   icon={{
                     url: parking,

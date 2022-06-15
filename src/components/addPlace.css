@@ -1,3 +1,36 @@
+.navbar {
+  background-image: url('/Users/fernandarodrigues/Codeworks/New-solo-project/my-app/src/images/pexels-sungmu-heo-2689631.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.menu {
+  float: unset;
+  min-height: 100vh;
+  width: 100%;
+  padding-left: 3%;
+}
+
+.next-header {
+  background-color: rgb(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+}
+
+.next-header span {
+  font-family: 'Tiro Telugu', serif;
+  font-size: 60px;
+  color: #323131;
+  margin-left: 2%;
+}
+
+.icon-logo {
+  color: #323131;
+  border: 2px solid #323131;
+  border-radius: 100px;
+  padding: 10px;
+}
+
 .search-header {
   display: flex;
   padding: 20px;
@@ -29,52 +62,67 @@
 .label-upload {
   cursor: pointer;
   font-family: 'Poppins', sans-serif;
-  font-size: 14px;
+  font-size: 30px;
   display: flex;
-  color: grey;
+  color: #555555;
   border-radius: 10px;
   border-color: transparent;
   box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.3);
-  width: 225px;
+  width: 27.5%;
+  height: 15vh;
   align-items: center;
-  margin-top: 5%;
-  /* margin-bottom: 10%; */
-  margin-left: 15%;
-}
-
-#icon-upload {
-  border-radius: 10px;
   background-color: #ecdd7b;
-  padding: 5%;
+  opacity: 0.5;
 }
 
-#upload-label {
+.icon-upload {
+  border-radius: 10px;
+  background-color: transparent;
   margin-left: 10%;
 }
 
+.icon-upload:hover {
+  color: lightgray;
+}
+
+.img-input {
+  margin-left: 5%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+#upload-label {
+  margin-left: 5%;
+}
+
 .add-subtitle {
-  margin-top: 10px;
-  width: 30%;
-  height: 100px;
+  width: 40%;
+  height: 15vh;
   border-radius: 10px;
   border-color: transparent;
   box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.3);
   font-family: 'Poppins', sans-serif;
-  font-size: small;
   color: grey;
-  margin-bottom: 10%;
-  margin-left: 10%;
-  font-size: 15px;
+  background-color: white;
+  margin-left: 1%;
+  font-size: 20px;
 }
 
-.add-subtitle::placeholder {
-  padding-top: 3%;
-  padding-left: 5%;
+.add-subtitle textarea {
+  color: white;
+}
+.menu-bar ul {
+  width: 80%;
+}
+
+.add-subtitle,
+.add-review::placeholder {
+  padding-top: 10px;
+  padding-left: 10px;
 }
 
 .brief-desc {
   display: flex;
-  padding-bottom: 2%;
 }
 
 .label-form {
@@ -86,37 +134,21 @@
 }
 
 .rating {
-  margin-top: 1%;
-  margin-left: 2.5%;
-  margin-bottom: 1%;
   cursor: pointer;
+  margin-left: 3%;
+  width: 200px;
 }
 .add-review {
   border-radius: 10px;
-  width: 55vw;
-  height: 100px;
+  width: 550px;
+  height: 55%;
   border-color: transparent;
   box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.3);
   font-family: 'Poppins', sans-serif;
-  font-size: 15px;
+  font-size: 20px;
   color: grey;
-  margin-left: 2.5%;
-}
-
-#form-submit {
-  font-family: 'Poppins', sans-serif;
-  border-color: transparent;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
-  background-color: #ecdd7b;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 100px;
-  color: #555555;
-  cursor: pointer;
-  margin-top: 10px;
-  margin-left: 2.5%;
+  margin-left: 1%;
+  background-color: white;
 }
 
 .btn-next {
@@ -127,7 +159,7 @@
   width: 100px;
   padding: 8px;
   font-family: 'Poppins', sans-serif;
-  color: grey;
+  color: #555555;
   margin-left: 10px;
 }
 
@@ -139,19 +171,109 @@
 
 #form-submit:hover {
   transform: scale(1.1);
-  color: rgb(60, 58, 58);
-  font-weight: bold;
-}
-.label-upload:hover {
-  transform: scale(1.1);
-}
-.img-input {
-  margin-top: 5%;
-  margin-left: 3%;
+  opacity: 1;
 }
 
 .locate {
   background-color: transparent;
   border-radius: 20px;
   border: transparent;
+}
+
+#menu-2,
+#menu-3,
+#menu-4,
+#menu-1 {
+  display: flex;
+  height: 10vw;
+  width: 100vw;
+}
+
+#menu-4 span {
+  width: 100%;
+  display: flex;
+}
+
+.icon-submit {
+  margin-left: 30px;
+}
+
+.display-none {
+  display: none;
+}
+
+.btn-1 {
+  background-color: #ecdd7b;
+  font-family: 'Poppins', sans-serif;
+  font-size: 30px;
+  color: #555555;
+  border: transparent;
+  border-radius: 10px;
+  width: 30%;
+  box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 55px;
+  height: 15vh;
+  opacity: 0.5;
+}
+.btn-2 {
+  background-color: #ecdd7b;
+  font-family: 'Poppins', sans-serif;
+  font-size: 30px;
+  color: #555555;
+  border: transparent;
+  border-radius: 10px;
+  width: 30%;
+  box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 100px;
+  height: 15vh;
+  opacity: 0.5;
+}
+
+#feedback-label {
+  margin-left: 10%;
+}
+
+#form-submit {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  border-color: transparent;
+  box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #ecdd7b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  color: #555555;
+  cursor: pointer;
+  height: 6vh;
+  opacity: 0.5;
+}
+#submit-label {
+  font-size: 20px;
+}
+
+.btn-1:hover,
+.btn-2:hover,
+.label-upload:hover {
+  opacity: 1;
+}
+
+.search-bar-icons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #555555;
+}
+
+.menu li {
+  list-style: none;
 }

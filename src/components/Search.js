@@ -23,7 +23,7 @@ const Search = ({ panTo }) => {
   } = usePlacesAutocomplete({
     requestOptions: {
       location: { lat: () => 40.4637, lng: () => -3.7492 },
-      radius: 200 * 1000,
+      radius: 10 * 1000,
     },
   });
 

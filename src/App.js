@@ -2,6 +2,7 @@ import Map from './components/Map';
 import { useState, useEffect } from 'react';
 import AddPlace from './components/AddPlace';
 import AddForm from './components/AddForm';
+import MainPage from './components/MainPage';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -26,23 +27,13 @@ function App() {
 
   useEffect(() => {
     fetchPlaces();
-    // const locations = db.hits.map((data) => ({
-    //   id: data._id,
-    //   photo: data._source.thumbnail,
-    //   title: data._source.subtitle,
-    //   numberOfReviews: data._source.filters.numberOfReviews,
-    //   rating: data._source.filters.rating,
-    //   lat: data._source.location.lat,
-    //   lng: data._source.location.lon,
-    // }));
-
-    // setPlaces(locations);
   }, []);
 
   return (
     <div className="container">
       <Routes>
-        <Route path="/" element={<Map places={places} />} />
+        <Route path="/" element={<MainPage />} />
+        <Route path="/search" element={<Map places={places} />} />
         <Route path="/add" element={<AddPlace />} />
         <Route path="/add-next" element={<AddForm onAdd={addPlaces} />} />
       </Routes>

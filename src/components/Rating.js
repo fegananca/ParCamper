@@ -21,6 +21,8 @@ const Rating = ({ count, rating, color, onRating }) => {
           className="cursor-pointer"
           key={idx}
           icon="mdi:star"
+          height={40}
+          width={40}
           onClick={() => onRating(idx)}
           style={{ color: getColor(idx) }}
           onMouseEnter={() => setHoverRating(idx)}
@@ -45,7 +47,7 @@ Rating.defaultProps = {
   count: 5,
   rating: 0,
   color: {
-    filled: '#f5eb3b',
+    filled: '#ecdd7b',
     unfilled: '#DCDCDC',
   },
 };
