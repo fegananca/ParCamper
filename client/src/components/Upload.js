@@ -14,6 +14,7 @@ const Upload = ({ setImage, previewSource, setPreviewSource }) => {
     setSelectedFile(file);
     setFileInputState(e.target.value);
     uploadImage(file);
+
   };
 
   const previewFile = (file) => {
