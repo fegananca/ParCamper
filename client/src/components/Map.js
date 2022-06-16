@@ -8,7 +8,7 @@ import {
 import { useState } from 'react';
 import LocationInfo from './LocationInfo';
 import Search from './Search';
-import ButtonAdd from './ButtonAdd';
+import ButtonAdd from './ButtonAdd.tsx';
 import parking from '../Pages/images/clarity_campervan-solid.png';
 import { Icon } from '@iconify/react';
 // import dotenv from 'dotenv';
