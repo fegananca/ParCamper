@@ -1,10 +1,11 @@
-import { GoogleMap, Marker } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import Search from './Search';
 import React, { useState } from 'react';
 import FindMe from './FindMe';
 import './addPlace.css';
 import { useNavigate } from 'react-router-dom';
 import parking from '../Pages/images/clarity_campervan-solid.png';
+
 
 const center = {
   lat: 40.4637,
@@ -15,6 +16,8 @@ const containerStyle = {
   width: '100vw',
   height: '40vw',
 };
+
+const API_KEY = process.env.REACT_APP_GMAPS_API_KEY;
 
 const AddPlace = () => {
   const [coordinates, setCoordinates] = useState('');
@@ -60,6 +63,8 @@ const AddPlace = () => {
     }
   };
 
+
+
   return (
     <div className='container-add'>
       <div className='search-header'>
@@ -67,6 +72,7 @@ const AddPlace = () => {
         <Search panTo={panTo}></Search>
       </div>
       <div className='add-place-container'>
+      <LoadScript googleMapsApiKey={API_KEY} language='en'>
         <GoogleMap
           mapContainerClassName='map-add'
           mapContainerStyle={containerStyle}
@@ -94,6 +100,7 @@ const AddPlace = () => {
               );
             })}
         </GoogleMap>
+        </LoadScript>
         <button type='button' className='btn-next' onClick={() => toAddForm()}>
           Next
         </button>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { GoogleMap, Marker, InfoWindow } from '@react-google-maps/api';
+import { GoogleMap, Marker, InfoWindow, LoadScript } from '@react-google-maps/api';
 import { useState } from 'react';
 import LocationInfo from './LocationInfo';
 import Search from './Search';
@@ -17,8 +17,19 @@ const containerStyle = {
   height: '100vw',
 };
 
+const API_KEY = process.env.REACT_APP_GMAPS_API_KEY;
+
 const Map = ({ places }) => {
   const [locationInfo, setLocationInfo] = useState(null);
+
+  const mapOptions = {
+    mapTypeControl: false,
+    scaleControl: false,
+    streetViewControl: false,
+    fullscreenControl: false,
+    zoomControl: false,
+  };
+
 
   const mapRef = React.useRef();
 
@@ -58,12 +69,15 @@ const Map = ({ places }) => {
         <Icon icon='healthicons:electricity-outline' width={50} height={40} />
         <Icon icon='iconoir:internet' width={50} height={40} />
       </div>
+      <LoadScript googleMapsApiKey={API_KEY} language='en'>
       <GoogleMap
         mapContainerClassName='map'
         mapContainerStyle={containerStyle}
         center={center}
         zoom={7}
         onLoad={onMapLoad}
+        mapOptions={mapOptions}
+        googleMapsApiKey={API_KEY}
       >
         {places.map((data) => (
           <Marker
@@ -104,6 +118,7 @@ const Map = ({ places }) => {
           </InfoWindow>
         ) : null}
       </GoogleMap>
+      </LoadScript>
     </div>
   );
 };
