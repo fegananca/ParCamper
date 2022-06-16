@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
+const key = process.env.MONGO_KEY;
 
 mongoose.connect(
-  'mongodb+srv://fegananca:aNcTUVss7NryMBZB@cluster0.6ud5c8w.mongodb.net/places',
+  'mongodb+srv://irene:ardilla@cluster0.gv8zyci.mongodb.net/parcamper',
   (err) => {
     if (!err) console.log('mongoDB connection succeeded');
     else console.log('Error in DB connection');
