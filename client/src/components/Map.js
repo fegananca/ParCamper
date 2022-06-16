@@ -1,5 +1,5 @@
 import React from 'react';
-import { GoogleMap, Marker, InfoWindow } from '@react-google-maps/api';
+import { GoogleMap, Marker, InfoWindow, LoadScript } from '@react-google-maps/api';
 import { useState } from 'react';
 import LocationInfo from './LocationInfo';
 import Search from './Search';
@@ -17,12 +17,26 @@ const containerStyle = {
   height: '100vw',
 };
 
+const API_KEY = process.env.REACT_APP_GMAPS_API_KEY;
+
 const Map = ({ places }) => {
   const [locationInfo, setLocationInfo] = useState(null);
+
+  const mapOptions = {
+    mapTypeControl: false,
+    scaleControl: false,
+    streetViewControl: false,
+    fullscreenControl: false,
+    zoomControl: false,
+  };
+
+
   const mapRef = React.useRef();
+
   const onMapLoad = React.useCallback((map) => {
     mapRef.current = map;
   }, []);
+
   const panTo = React.useCallback(
     ({ lat, lng }) => {
       mapRef.current.panTo({ lat, lng });
@@ -32,8 +46,8 @@ const Map = ({ places }) => {
   );
 
   return (
-    <div className="container-map">
-      <div className="header">
+    <div className='container-map'>
+      <div className='header'>
         {/* <Icon
           icon="clarity:campervan-solid"
           width={90}
@@ -43,24 +57,27 @@ const Map = ({ places }) => {
         <Search panTo={panTo} />
         <ButtonAdd></ButtonAdd>
       </div>
-      <div className="search-bar-icons">
-        <Icon icon="icon-park-outline:mountain" width={50} height={40} />
-        <Icon icon="fa-solid:umbrella-beach" width={50} height={40} />
-        <Icon icon="ic:twotone-hiking" width={50} height={40} />
+      <div className='search-bar-icons'>
+        <Icon icon='icon-park-outline:mountain' width={50} height={40} />
+        <Icon icon='fa-solid:umbrella-beach' width={50} height={40} />
+        <Icon icon='ic:twotone-hiking' width={50} height={40} />
         <Icon
-          icon="emojione-monotone:person-mountain-biking"
+          icon='emojione-monotone:person-mountain-biking'
           width={50}
           height={40}
         />
-        <Icon icon="healthicons:electricity-outline" width={50} height={40} />
-        <Icon icon="iconoir:internet" width={50} height={40} />
+        <Icon icon='healthicons:electricity-outline' width={50} height={40} />
+        <Icon icon='iconoir:internet' width={50} height={40} />
       </div>
+      <LoadScript googleMapsApiKey={API_KEY} language='en'>
       <GoogleMap
-        mapContainerClassName="map"
+        mapContainerClassName='map'
         mapContainerStyle={containerStyle}
         center={center}
         zoom={7}
         onLoad={onMapLoad}
+        mapOptions={mapOptions}
+        googleMapsApiKey={API_KEY}
       >
         {places.map((data) => (
           <Marker
@@ -101,6 +118,7 @@ const Map = ({ places }) => {
           </InfoWindow>
         ) : null}
       </GoogleMap>
+      </LoadScript>
     </div>
   );
 };

@@ -12,15 +12,17 @@ const Rating = ({ count, rating, color, onRating }) => {
     }
     return color.unfilled;
   };
+
+  //TODO wtf
   const starRating = useMemo(() => {
     return Array(count)
       .fill(0)
       .map((_, i) => i + 1)
       .map((idx) => (
         <Icon
-          className="cursor-pointer"
+          className='cursor-pointer'
           key={idx}
-          icon="mdi:star"
+          icon='mdi:star'
           height={40}
           width={40}
           onClick={() => onRating(idx)}
@@ -30,7 +32,7 @@ const Rating = ({ count, rating, color, onRating }) => {
         />
       ));
   }, [count, rating, hoverRating]);
-  return <div className="rating">{starRating}</div>;
+  return <div className='rating'>{starRating}</div>;
 };
 
 Rating.propTypes = {
