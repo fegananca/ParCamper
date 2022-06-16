@@ -1,11 +1,18 @@
 import React from 'react';
-import { GoogleMap, Marker, InfoWindow, LoadScript } from '@react-google-maps/api';
+import {
+  GoogleMap,
+  Marker,
+  InfoWindow,
+  LoadScript,
+} from '@react-google-maps/api';
 import { useState } from 'react';
 import LocationInfo from './LocationInfo';
 import Search from './Search';
 import ButtonAdd from './ButtonAdd';
 import parking from '../Pages/images/clarity_campervan-solid.png';
 import { Icon } from '@iconify/react';
+// import dotenv from 'dotenv';
+// dotenv.config();
 
 const center = {
   lat: 40.4637,
@@ -29,7 +36,6 @@ const Map = ({ places }) => {
     fullscreenControl: false,
     zoomControl: false,
   };
-
 
   const mapRef = React.useRef();
 
@@ -70,54 +76,54 @@ const Map = ({ places }) => {
         <Icon icon='iconoir:internet' width={50} height={40} />
       </div>
       <LoadScript googleMapsApiKey={API_KEY} language='en'>
-      <GoogleMap
-        mapContainerClassName='map'
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={7}
-        onLoad={onMapLoad}
-        mapOptions={mapOptions}
-        googleMapsApiKey={API_KEY}
-      >
-        {places.map((data) => (
-          <Marker
-            key={data._id}
-            position={{
-              lat: data._source.location.lat,
-              lng: data._source.location.lon,
-            }}
-            icon={{
-              url: parking,
-              origin: new window.google.maps.Point(0, 0),
-              anchor: new window.google.maps.Point(15, 15),
-              scaledSize: new window.google.maps.Size(30, 30),
-            }}
-            onClick={() =>
-              setLocationInfo({
-                photo: data._source.thumbnail,
-                title: data._source.subtitle,
-                numberOfReviews: data._source.filters.numberOfReviews,
-                rating: data._source.filters.rating,
-                review: data._source.filters.review,
+        <GoogleMap
+          mapContainerClassName='map'
+          mapContainerStyle={containerStyle}
+          center={center}
+          zoom={7}
+          onLoad={onMapLoad}
+          mapOptions={mapOptions}
+          googleMapsApiKey={API_KEY}
+        >
+          {places.map((data) => (
+            <Marker
+              key={data._id}
+              position={{
                 lat: data._source.location.lat,
                 lng: data._source.location.lon,
-              })
-            }
-          />
-        ))}
-        {locationInfo ? (
-          <InfoWindow
-            options={{ maxWidth: 150 }}
-            onCloseClick={() => {
-              setLocationInfo(null);
-            }}
-            //
-            position={{ lat: locationInfo.lat, lng: locationInfo.lng }}
-          >
-            {locationInfo && <LocationInfo info={locationInfo} />}
-          </InfoWindow>
-        ) : null}
-      </GoogleMap>
+              }}
+              icon={{
+                url: parking,
+                origin: new window.google.maps.Point(0, 0),
+                anchor: new window.google.maps.Point(15, 15),
+                scaledSize: new window.google.maps.Size(30, 30),
+              }}
+              onClick={() =>
+                setLocationInfo({
+                  photo: data._source.thumbnail,
+                  title: data._source.subtitle,
+                  numberOfReviews: data._source.filters.numberOfReviews,
+                  rating: data._source.filters.rating,
+                  review: data._source.filters.review,
+                  lat: data._source.location.lat,
+                  lng: data._source.location.lon,
+                })
+              }
+            />
+          ))}
+          {locationInfo ? (
+            <InfoWindow
+              options={{ maxWidth: 150 }}
+              onCloseClick={() => {
+                setLocationInfo(null);
+              }}
+              //
+              position={{ lat: locationInfo.lat, lng: locationInfo.lng }}
+            >
+              {locationInfo && <LocationInfo info={locationInfo} />}
+            </InfoWindow>
+          ) : null}
+        </GoogleMap>
       </LoadScript>
     </div>
   );

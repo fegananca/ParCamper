@@ -5,7 +5,8 @@ import FindMe from './FindMe';
 import './addPlace.css';
 import { useNavigate } from 'react-router-dom';
 import parking from '../Pages/images/clarity_campervan-solid.png';
-
+// import dotenv from 'dotenv';
+// dotenv.config();
 
 const center = {
   lat: 40.4637,
