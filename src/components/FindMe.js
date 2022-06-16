@@ -1,5 +1,5 @@
 import React from 'react';
-import compass from '../images/clarity_compass-solid.png';
+import compass from '../Pages/images/clarity_compass-solid.png';
 
 const FindMe = ({ panTo }) => {
   return (

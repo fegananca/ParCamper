@@ -1,4 +1,4 @@
-import mainVideo from '../images/pexels-pavel-danilyuk-9121392.mp4';
+import mainVideo from '../Pages/images/pexels-pavel-danilyuk-9121392.mp4';
 import ButtonSearch from './ButtonSearch';
 
 const MainPage = () => {

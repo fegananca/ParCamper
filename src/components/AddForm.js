@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Upload from './Upload';
 import { Icon } from '@iconify/react';
-import parking from '../images/clarity_campervan-solid.png';
+// import parking from '../Pages/images/clarity_campervan-solid.png';
 import './addPlace.css';
 
 const AddForm = ({ onAdd }) => {

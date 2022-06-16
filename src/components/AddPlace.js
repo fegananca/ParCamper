@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 import FindMe from './FindMe';
 import './addPlace.css';
 import { useNavigate } from 'react-router-dom';
-import parking from '../images/clarity_campervan-solid.png';
+import parking from '../Pages/images/clarity_campervan-solid.png';
+
 const center = {
   lat: 40.4637,
   lng: -3.7492,

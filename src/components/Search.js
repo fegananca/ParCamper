@@ -11,7 +11,7 @@ import {
   ComboboxList,
 } from '@reach/combobox';
 import '@reach/combobox/styles.css';
-import searchIcon from '../images/arcticons_xiaoyuan-search.png';
+import searchIcon from '../Pages/images/arcticons_xiaoyuan-search.png';
 
 const Search = ({ panTo }) => {
   const {

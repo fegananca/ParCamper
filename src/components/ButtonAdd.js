@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import addIcon from '../images/fluent_add-24-filled.png';
+import addIcon from '../Pages/images/fluent_add-24-filled.png';
 
 const ButtonAdd = () => {
   return (

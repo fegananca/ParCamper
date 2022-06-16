@@ -1,15 +1,10 @@
 import React from 'react';
-import {
-  GoogleMap,
-  // useJsApiLoader,
-  Marker,
-  InfoWindow,
-} from '@react-google-maps/api';
+import { GoogleMap, Marker, InfoWindow } from '@react-google-maps/api';
 import { useState } from 'react';
 import LocationInfo from './LocationInfo';
 import Search from './Search';
 import ButtonAdd from './ButtonAdd';
-import parking from '../images/clarity_campervan-solid.png';
+import parking from '../Pages/images/clarity_campervan-solid.png';
 import { Icon } from '@iconify/react';
 
 const center = {
@@ -35,14 +30,6 @@ const Map = ({ places }) => {
     },
     [mapRef]
   );
-
-  // const { isLoaded } = useJsApiLoader({
-  //   id: 'google-map-script',
-  //   googleMapsApiKey: 'AIzaSyAI65iBCALEFGedyf-02CjiOtoVQXZxaF8',
-  //   libraries: ['places'],
-  // });
-
-  // if (!isLoaded) return 'Loading...';
 
   return (
     <div className="container-map">

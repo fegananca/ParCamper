@@ -1,6 +1,5 @@
 const places = require('../models/schema');
 const { uploadFile, getFileStream } = require('../s3');
-// const { cloudinary } = require('../utils/cloudinary');
 
 const getPlaces = async (req, res) => {
   try {
@@ -22,7 +21,7 @@ const postPlaces = async (req, res) => {
           lon: req.body.location.lon,
         },
         filters: {
-          // numberOfReviews: req.body.numberOfReviews,
+          //numberOfReviews: ,
           rating: req.body.rating,
           review: req.body.review,
           // prices: req.body.prices,
@@ -32,7 +31,7 @@ const postPlaces = async (req, res) => {
     });
 
     console.log(result);
-    res.status(200);
+    res.status(201);
     res.send(result);
   } catch (error) {
     console.log(error);
