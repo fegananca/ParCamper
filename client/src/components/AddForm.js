@@ -1,7 +1,7 @@
 import Rating from './Rating';
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Upload from './Upload';
+import Upload from './Upload.tsx';
 import { Icon } from '@iconify/react';
 // import parking from '../Pages/images/clarity_campervan-solid.png';
 import './addPlace.css';
@@ -46,21 +46,21 @@ const AddForm = ({ onAdd }) => {
 
   return (
     <>
-      <div className="navbar">
-        <div className="next-header">
+      <div className='navbar'>
+        <div className='next-header'>
           <Icon
-            icon="clarity:campervan-solid"
+            icon='clarity:campervan-solid'
             width={130}
             height={130}
-            className="icon-logo"
+            className='icon-logo'
           />
           <span>Help us grow our community</span>
         </div>
 
-        <div className="menu">
+        <div className='menu'>
           <ul>
             <li>
-              <div className="menu-bar" id="menu-1">
+              <div className='menu-bar' id='menu-1'>
                 <Upload
                   previewSource={previewSource}
                   setPreviewSource={setPreviewSource}
@@ -70,20 +70,20 @@ const AddForm = ({ onAdd }) => {
               </div>
             </li>
             <li>
-              <div className="menu-bar" id="menu-2">
-                <button className="btn-1" onClick={toogleTitle}>
+              <div className='menu-bar' id='menu-2'>
+                <button className='btn-1' onClick={toogleTitle}>
                   <Icon
-                    classname="icon-desc"
-                    icon="ooui:text-summary-ltr"
+                    classname='icon-desc'
+                    icon='ooui:text-summary-ltr'
                     height={100}
                     width={100}
                   />
-                  <p id="upload-label">Brief description</p>
+                  <p id='upload-label'>Brief description</p>
                 </button>
                 <ul>
                   <textarea
                     className={showTitleBox ? 'add-subtitle' : 'display-none'}
-                    placeholder="Add a brief description of the place"
+                    placeholder='Add a brief description of the place'
                     value={subtitle}
                     onChange={(e) => setSubtitle(e.target.value)}
                   />
@@ -91,10 +91,10 @@ const AddForm = ({ onAdd }) => {
               </div>
             </li>
             <li>
-              <div className="menu-bar" id="menu-3">
-                <button className="btn-2" onClick={toogleReview}>
-                  <Icon icon="uil:feedback" height={100} width={100} />
-                  <p id="feedback-label">Feedback</p>
+              <div className='menu-bar' id='menu-3'>
+                <button className='btn-2' onClick={toogleReview}>
+                  <Icon icon='uil:feedback' height={100} width={100} />
+                  <p id='feedback-label'>Feedback</p>
                 </button>
                 <ul>
                   <Rating
@@ -103,7 +103,7 @@ const AddForm = ({ onAdd }) => {
                   ></Rating>
                   <textarea
                     className={showReviewBox ? 'add-review' : 'display-none'}
-                    placeholder="Please write a review"
+                    placeholder='Please write a review'
                     value={review}
                     onChange={(e) => setReview(e.target.value)}
                   />
@@ -112,17 +112,17 @@ const AddForm = ({ onAdd }) => {
             </li>
 
             <li>
-              <div className="menu-bar" id="menu-4">
-                <button id="form-submit" onClick={() => onSubmit()}>
+              <div className='menu-bar' id='menu-4'>
+                <button id='form-submit' onClick={() => onSubmit()}>
                   <div>
                     <Icon
-                      className="icon-submit"
-                      icon="material-symbols:download-done-outline"
+                      className='icon-submit'
+                      icon='material-symbols:download-done-outline'
                       height={50}
                       width={50}
                     />
                   </div>
-                  <span id="submit-label">Submit</span>
+                  <span id='submit-label'>Submit</span>
                 </button>
               </div>
             </li>
