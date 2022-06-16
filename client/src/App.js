@@ -8,6 +8,7 @@ import { Routes, Route } from 'react-router-dom';
 function App() {
   const [places, setPlaces] = useState([]);
 
+  //apiservice
   const fetchPlaces = async () => {
     const fetchPlaces = await fetch('http://localhost:3001/places');
     const data = await fetchPlaces.json();
@@ -29,13 +30,14 @@ function App() {
     fetchPlaces();
   }, []);
 
+  //route name add-next
   return (
-    <div className="container">
+    <div className='container'>
       <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/search" element={<Map places={places} />} />
-        <Route path="/add" element={<AddPlace />} />
-        <Route path="/add-next" element={<AddForm onAdd={addPlaces} />} />
+        <Route path='/' element={<MainPage />} />
+        <Route path='/search' element={<Map places={places} />} />
+        <Route path='/add' element={<AddPlace />} />
+        <Route path='/add-next' element={<AddForm onAdd={addPlaces} />} />
       </Routes>
     </div>
   );

@@ -19,10 +19,13 @@ const containerStyle = {
 
 const Map = ({ places }) => {
   const [locationInfo, setLocationInfo] = useState(null);
+
   const mapRef = React.useRef();
+
   const onMapLoad = React.useCallback((map) => {
     mapRef.current = map;
   }, []);
+
   const panTo = React.useCallback(
     ({ lat, lng }) => {
       mapRef.current.panTo({ lat, lng });
@@ -32,8 +35,8 @@ const Map = ({ places }) => {
   );
 
   return (
-    <div className="container-map">
-      <div className="header">
+    <div className='container-map'>
+      <div className='header'>
         {/* <Icon
           icon="clarity:campervan-solid"
           width={90}
@@ -43,20 +46,20 @@ const Map = ({ places }) => {
         <Search panTo={panTo} />
         <ButtonAdd></ButtonAdd>
       </div>
-      <div className="search-bar-icons">
-        <Icon icon="icon-park-outline:mountain" width={50} height={40} />
-        <Icon icon="fa-solid:umbrella-beach" width={50} height={40} />
-        <Icon icon="ic:twotone-hiking" width={50} height={40} />
+      <div className='search-bar-icons'>
+        <Icon icon='icon-park-outline:mountain' width={50} height={40} />
+        <Icon icon='fa-solid:umbrella-beach' width={50} height={40} />
+        <Icon icon='ic:twotone-hiking' width={50} height={40} />
         <Icon
-          icon="emojione-monotone:person-mountain-biking"
+          icon='emojione-monotone:person-mountain-biking'
           width={50}
           height={40}
         />
-        <Icon icon="healthicons:electricity-outline" width={50} height={40} />
-        <Icon icon="iconoir:internet" width={50} height={40} />
+        <Icon icon='healthicons:electricity-outline' width={50} height={40} />
+        <Icon icon='iconoir:internet' width={50} height={40} />
       </div>
       <GoogleMap
-        mapContainerClassName="map"
+        mapContainerClassName='map'
         mapContainerStyle={containerStyle}
         center={center}
         zoom={7}

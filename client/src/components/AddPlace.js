@@ -22,6 +22,7 @@ const AddPlace = () => {
   const navigate = useNavigate();
 
   const mapRef = React.useRef();
+
   const onMapLoad = React.useCallback((map) => {
     mapRef.current = map;
   }, []);
@@ -60,14 +61,14 @@ const AddPlace = () => {
   };
 
   return (
-    <div className="container-add">
-      <div className="search-header">
+    <div className='container-add'>
+      <div className='search-header'>
         <FindMe panTo={panToFind} />
         <Search panTo={panTo}></Search>
       </div>
-      <div className="add-place-container">
+      <div className='add-place-container'>
         <GoogleMap
-          mapContainerClassName="map-add"
+          mapContainerClassName='map-add'
           mapContainerStyle={containerStyle}
           center={center}
           zoom={6}
@@ -93,7 +94,7 @@ const AddPlace = () => {
               );
             })}
         </GoogleMap>
-        <button type="button" className="btn-next" onClick={() => toAddForm()}>
+        <button type='button' className='btn-next' onClick={() => toAddForm()}>
           Next
         </button>
       </div>
