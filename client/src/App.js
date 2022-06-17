@@ -1,6 +1,6 @@
 import Map from './components/Map';
 import { useState, useEffect } from 'react';
-import AddPlace from './components/AddPlace';
+import AddPlace from './components/AddPlace.tsx';
 import AddForm from './components/AddForm';
 import MainPage from './components/MainPage';
 import { Routes, Route } from 'react-router-dom';

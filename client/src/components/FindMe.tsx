@@ -1,7 +1,14 @@
 import React from 'react';
-import compass from '../Pages/images/clarity_compass-solid.png';
+const compass = require('../Pages/images/clarity_compass-solid.png');
 
-const FindMe = ({ panTo }) => {
+
+
+interface panToArgs{
+  lat: number
+  lng: number
+}
+
+const FindMe = ({ panTo }: {panTo: (arg0: panToArgs) => void}) => {
   return (
     <button
       className="locate"
