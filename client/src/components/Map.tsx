@@ -8,11 +8,11 @@ import {
 import { useState } from 'react';
 import LocationInfo from './LocationInfo';
 import Search from './Search';
-import ButtonAdd from './ButtonAdd.tsx';
-import parking from '../Pages/images/clarity_campervan-solid.png';
 import { Icon } from '@iconify/react';
-// import dotenv from 'dotenv';
-// dotenv.config();
+import { LocationInfoInterface } from '../Interfaces/Map.interface';
+import ButtonAdd  from './ButtonAdd';
+const parking = require('../Pages/images/clarity_campervan-solid.png');
+
 
 const center = {
   lat: 40.4637,
@@ -26,8 +26,8 @@ const containerStyle = {
 
 const API_KEY = process.env.REACT_APP_GMAPS_API_KEY;
 
-const Map = ({ places }) => {
-  const [locationInfo, setLocationInfo] = useState(null);
+const Map = ({ places }: {places: any}) => {
+  const [locationInfo, setLocationInfo] = useState<LocationInfoInterface | null>(null);
 
   const mapOptions = {
     mapTypeControl: false,
@@ -37,16 +37,19 @@ const Map = ({ places }) => {
     zoomControl: false,
   };
 
-  const mapRef = React.useRef();
+  const mapRef = React.useRef<google.maps.Map | null>(null);
 
-  const onMapLoad = React.useCallback((map) => {
+  const onMapLoad = React.useCallback((map: google.maps.Map ) => {
     mapRef.current = map;
+
   }, []);
 
   const panTo = React.useCallback(
-    ({ lat, lng }) => {
-      mapRef.current.panTo({ lat, lng });
-      mapRef.current.setZoom(10);
+    ({ lat, lng }:{lat: number, lng: number}) => {
+      if(mapRef.current !== null){
+        mapRef.current.panTo({ lat, lng });
+        mapRef.current.setZoom(10);
+      }
     },
     [mapRef]
   );
@@ -75,17 +78,16 @@ const Map = ({ places }) => {
         <Icon icon='healthicons:electricity-outline' width={50} height={40} />
         <Icon icon='iconoir:internet' width={50} height={40} />
       </div>
-      <LoadScript googleMapsApiKey={API_KEY} language='en'>
+      <LoadScript googleMapsApiKey={API_KEY as string} language='en'>
         <GoogleMap
           mapContainerClassName='map'
           mapContainerStyle={containerStyle}
           center={center}
           zoom={7}
-          onLoad={onMapLoad}
-          mapOptions={mapOptions}
-          googleMapsApiKey={API_KEY}
+          onLoad={onMapLoad as ()=> void}
+          options={mapOptions}
         >
-          {places.map((data) => (
+          {places.map((data :any) => (
             <Marker
               key={data._id}
               position={{

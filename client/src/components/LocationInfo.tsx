@@ -1,6 +1,7 @@
 import { Icon } from '@iconify/react';
+import { LocationInfoInterface } from '../Interfaces/Map.interface';
 
-const LocationInfo = ({ info }) => {
+const LocationInfo = ({ info }:{info: LocationInfoInterface}) => {
   return (
     <div className="location-info">
       <img src={info.photo} alt="place to park"></img>

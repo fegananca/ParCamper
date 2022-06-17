@@ -1,5 +1,5 @@
-import mainVideo from '../Pages/images/pexels-pavel-danilyuk-9121392.mp4';
-import ButtonSearch from './ButtonSearch.tsx';
+import ButtonSearch from "./ButtonSearch";
+const mainVideo = require('../Pages/images/pexels-pavel-danilyuk-9121392.mp4');
 
 const MainPage = () => {
   return (

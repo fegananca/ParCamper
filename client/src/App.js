@@ -1,8 +1,8 @@
-import Map from './components/Map';
+import Map from './components/Map.tsx';
 import { useState, useEffect } from 'react';
 import AddPlace from './components/AddPlace.tsx';
 import AddForm from './components/AddForm';
-import MainPage from './components/MainPage';
+import MainPage from './components/MainPage.tsx';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {

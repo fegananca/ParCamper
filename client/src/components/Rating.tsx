@@ -1,10 +1,11 @@
 import React, { useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Icon } from '@iconify/react';
+import { RatingProps } from '../Interfaces/Rating.interfaces';
 
-const Rating = ({ count, rating, color, onRating }) => {
+const Rating = ({ count, rating, color, onRating }: RatingProps) => {
   const [hoverRating, setHoverRating] = useState(0);
-  const getColor = (index) => {
+  const getColor = (index: number) => {
     if (hoverRating >= index) {
       return color.filled;
     } else if (!hoverRating && rating >= index) {
@@ -13,7 +14,6 @@ const Rating = ({ count, rating, color, onRating }) => {
     return color.unfilled;
   };
 
-  //TODO wtf
   const starRating = useMemo(() => {
     return Array(count)
       .fill(0)
@@ -31,6 +31,7 @@ const Rating = ({ count, rating, color, onRating }) => {
           onMouseLeave={() => setHoverRating(0)}
         />
       ));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count, rating, hoverRating]);
   return <div className='rating'>{starRating}</div>;
 };
