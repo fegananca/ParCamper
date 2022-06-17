@@ -1,7 +1,7 @@
 import React from 'react';
 import usePlacesAutocomplete, {
   getGeocode,
-  getLatLng,
+  getLatLng
 } from 'use-places-autocomplete';
 import {
   Combobox,
@@ -11,21 +11,23 @@ import {
   ComboboxList,
 } from '@reach/combobox';
 import '@reach/combobox/styles.css';
-import searchIcon from '../Pages/images/arcticons_xiaoyuan-search.png';
 
-const Search = ({ panTo }) => {
+const searchIcon = require('../Pages/images/arcticons_xiaoyuan-search.png');
+
+interface PanToArgs {
+  lat: number;
+  lng: number;
+}
+
+const Search = ({ panTo }: {panTo: (arg0: PanToArgs) => void }) => {
   const {
     ready,
     value,
     suggestions: { status, data },
     setValue,
     clearSuggestions,
-  } = usePlacesAutocomplete({
-    requestOptions: {
-      location: { lat: () => 40.4637, lng: () => -3.7492 },
-      radius: 10 * 1000,
-    },
-  });
+  } = usePlacesAutocomplete(
+  );
 
   return (
     <div className="search">
@@ -57,8 +59,8 @@ const Search = ({ panTo }) => {
         <ComboboxPopover>
           <ComboboxList>
             {status === 'OK' &&
-              data.map(({ id, description }) => (
-                <ComboboxOption key={id} value={description} />
+              data.map(({ place_id, description }) => (
+                <ComboboxOption key={place_id} value={description} />
               ))}
           </ComboboxList>
         </ComboboxPopover>

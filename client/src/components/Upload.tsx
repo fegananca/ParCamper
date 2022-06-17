@@ -2,7 +2,15 @@ import React from 'react';
 import { useState } from 'react';
 import './addPlace.css';
 import { Icon } from '@iconify/react';
-import { UploadProps } from '../Interfaces/upload.interface';
+
+
+import { Dispatch, SetStateAction } from 'react';
+
+interface UploadProps {
+  setImage: Dispatch<SetStateAction<string>>;
+  previewSource: string;
+  setPreviewSource: Dispatch<SetStateAction<string>>;
+}
 
 const Upload = ({ setImage, previewSource, setPreviewSource }: UploadProps) => {
   const [fileInputState, setFileInputState] = useState<string>('');
