@@ -73,7 +73,7 @@ const AddForm = ({ onAdd }) => {
               <div className="menu-bar" id="menu-2">
                 <button className="btn-1" onClick={toogleTitle}>
                   <Icon
-                    classname="icon-desc"
+                    className="icon-desc"
                     icon="ooui:text-summary-ltr"
                     height={100}
                     width={100}

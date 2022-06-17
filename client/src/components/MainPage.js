@@ -1,5 +1,5 @@
 import mainVideo from '../Pages/images/pexels-pavel-danilyuk-9121392.mp4';
-import ButtonSearch from './ButtonSearch';
+import ButtonSearch from './ButtonSearch.tsx';
 
 const MainPage = () => {
   return (
