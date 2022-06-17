@@ -5,12 +5,11 @@ import { Icon } from '@iconify/react';
 import { UploadProps } from '../Interfaces/upload.interface';
 
 const Upload = ({ setImage, previewSource, setPreviewSource }: UploadProps) => {
-  const [fileInputState, setFileInputState] = useState('');
+  const [fileInputState, setFileInputState] = useState<string>('');
 
   const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const file = e.target.files[0];
-     console.log(file, 'onchange')
       previewFile(file );
       setFileInputState(e.target.value);
       uploadImage(file);
@@ -20,9 +19,9 @@ const Upload = ({ setImage, previewSource, setPreviewSource }: UploadProps) => {
   const previewFile = (file: File) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
-    reader.onloadend = () => {
-      setPreviewSource(reader.result);
-    };
+    // reader.onloadend = () => {
+    //   setPreviewSource(reader.result);
+    // };
   };
 
   const uploadImage = async (file: File) => {
