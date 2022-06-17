@@ -1,12 +1,14 @@
-import Map from './components/Map.tsx';
+import Map from './components/Map';
 import { useState, useEffect } from 'react';
-import AddPlace from './components/AddPlace.tsx';
+import AddPlace from './components/AddPlace';
 import AddForm from './components/AddForm';
-import MainPage from './components/MainPage.tsx';
+import MainPage from './components/MainPage';
 import { Routes, Route } from 'react-router-dom';
+import { OnAddPlace } from './Interfaces/AddForm.interfaces';
+
 
 function App() {
-  const [places, setPlaces] = useState([]);
+  const [places, setPlaces] = useState<OnAddPlace[]>([]);
 
   //apiservice
   const fetchPlaces = async () => {
@@ -15,13 +17,13 @@ function App() {
     setPlaces(data);
   };
 
-  const addPlaces = async (place) => {
+  const addPlaces = async (place: OnAddPlace) => {
     const res = await fetch('http://localhost:3001/places', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(place),
     });
-    const data = await res.json();
+    const data: OnAddPlace = await res.json();
 
     setPlaces([...places, data]);
   };

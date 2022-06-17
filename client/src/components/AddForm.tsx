@@ -5,7 +5,8 @@ import Upload from './Upload';
 import { Icon } from '@iconify/react';
 // import parking from '../Pages/images/clarity_campervan-solid.png';
 import './addPlace.css';
-import { Coordinates, OnAddPlace } from '../Interfaces/addForm.interfaces';
+import { Coordinates, OnAddPlace } from '../Interfaces/AddForm.interfaces';
+
 
 const AddForm = ({ onAdd }: {onAdd: (arg0: OnAddPlace) => void}) => {
   const [previewSource, setPreviewSource] = useState<string>('');
