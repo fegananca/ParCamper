@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from 'react';
 
 export interface UploadProps {
-  setImage: Dispatch<SetStateAction<any>>;
-  previewSource: any;
-  setPreviewSource: Dispatch<SetStateAction<any>>;
+  setImage: Dispatch<SetStateAction<string>>;
+  previewSource: string;
+  setPreviewSource: Dispatch<SetStateAction<string>>;
 }

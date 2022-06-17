@@ -1,20 +1,21 @@
 import Rating from './Rating';
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Upload from './Upload.tsx';
+import Upload from './Upload';
 import { Icon } from '@iconify/react';
 // import parking from '../Pages/images/clarity_campervan-solid.png';
 import './addPlace.css';
+import { Coordinates, OnAddPlace } from '../Interfaces/addForm.interfaces';
 
-const AddForm = ({ onAdd }) => {
-  const [previewSource, setPreviewSource] = useState('');
+const AddForm = ({ onAdd }: {onAdd: (arg0: OnAddPlace) => void}) => {
+  const [previewSource, setPreviewSource] = useState<string>('');
   const locationAddPlace = useLocation();
-  const [subtitle, setSubtitle] = useState('');
-  const [rating, setRating] = useState(0);
-  const [review, setReview] = useState('');
-  const [image, setImage] = useState('');
-  const [showTitleBox, setTitleBox] = useState(false);
-  const [showReviewBox, setReviewBox] = useState(false);
+  const [subtitle, setSubtitle] = useState<string>('');
+  const [rating, setRating] = useState<number>(0);
+  const [review, setReview] = useState<string>('');
+  const [image, setImage] = useState<string>('');
+  const [showTitleBox, setTitleBox] = useState<boolean>(false);
+  const [showReviewBox, setReviewBox] = useState<boolean>(false);
   const coordinates = locationAddPlace.state;
 
   const navigate = useNavigate();
@@ -22,10 +23,9 @@ const AddForm = ({ onAdd }) => {
   const toogleTitle = () => setTitleBox(!showTitleBox);
   const toogleReview = () => setReviewBox(!showReviewBox);
 
-  const onSubmit = (e) => {
-    // e.preventDefault();
+  const onSubmit = () => {
     onAdd({
-      location: coordinates,
+      location: coordinates as Coordinates,
       subtitle,
       rating,
       review,
@@ -73,8 +73,8 @@ const AddForm = ({ onAdd }) => {
               <div className='menu-bar' id='menu-2'>
                 <button className='btn-1' onClick={toogleTitle}>
                   <Icon
-                    className="icon-desc"
-                    icon="ooui:text-summary-ltr"
+                    className='icon-desc'
+                    icon='ooui:text-summary-ltr'
                     height={100}
                     width={100}
                   />
@@ -99,7 +99,7 @@ const AddForm = ({ onAdd }) => {
                 <ul>
                   <Rating
                     rating={rating}
-                    onRating={(rate) => setRating(rate)}
+                    onRating={(rate: any) => setRating(rate)}
                   ></Rating>
                   <textarea
                     className={showReviewBox ? 'add-review' : 'display-none'}

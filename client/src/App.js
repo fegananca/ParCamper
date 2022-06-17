@@ -25,6 +25,7 @@ function App() {
 
     setPlaces([...places, data]);
   };
+  console.log(places);
 
   useEffect(() => {
     fetchPlaces();
