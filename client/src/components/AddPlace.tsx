@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import FindMe from './FindMe';
 import './addPlace.css';
 import { useNavigate } from 'react-router-dom';
-import { Coordinates } from '../Interfaces/addPlaces.interfaces';
+import { Coordinates } from '../Interfaces/AddPlaces.interface';
 
 
 const parking = require('../Pages/images/clarity_campervan-solid.png');
@@ -68,7 +68,7 @@ const AddPlace = () => {
     if (!coordinates) {
       alert('Please, enter a location.');
     } else {
-      navigate('/add-next', { state: coordinates });
+      navigate('/add-form', { state: coordinates });
     }
   };
 

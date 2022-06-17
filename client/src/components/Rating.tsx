@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Icon } from '@iconify/react';
-import { RatingProps } from '../Interfaces/Rating.interfaces';
+import { RatingProps } from '../Interfaces/Rating.interface';
 
 const Rating = ({ count, rating, color, onRating }: RatingProps) => {
   const [hoverRating, setHoverRating] = useState(0);

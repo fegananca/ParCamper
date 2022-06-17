@@ -4,7 +4,7 @@ import AddPlace from './components/AddPlace';
 import AddForm from './components/AddForm';
 import MainPage from './components/MainPage';
 import { Routes, Route } from 'react-router-dom';
-import { OnAddPlace } from './Interfaces/AddForm.interfaces';
+import { OnAddPlace } from './Interfaces/AddForm.interface';
 
 
 function App() {
@@ -40,7 +40,7 @@ function App() {
         <Route path='/' element={<MainPage />} />
         <Route path='/search' element={<Map places={places} />} />
         <Route path='/add' element={<AddPlace />} />
-        <Route path='/add-next' element={<AddForm onAdd={addPlaces} />} />
+        <Route path='/add-form' element={<AddForm onAdd={addPlaces} />} />
       </Routes>
     </div>
   );
