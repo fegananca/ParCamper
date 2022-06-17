@@ -19,7 +19,7 @@ const Upload = ({ setImage, previewSource, setPreviewSource }: UploadProps) => {
 
   const previewFile = (file: File) => {
     const reader = new FileReader();
-    reader.readAsDataURL(file as unknown as Blob);
+    reader.readAsDataURL(file);
     reader.onloadend = () => {
       setPreviewSource(reader.result);
     };
