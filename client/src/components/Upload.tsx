@@ -2,13 +2,14 @@ import React from 'react';
 import { useState } from 'react';
 import './addPlace.css';
 import { Icon } from '@iconify/react';
+import { File } from '../Interfaces/upload.interface';
 
 const Upload = ({ setImage, previewSource, setPreviewSource }) => {
   const [fileInputState, setFileInputState] = useState('');
   // const [previewSource, setPreviewSource] = useState('');
   const [selectedFile, setSelectedFile] = useState();
 
-  const handleFileInputChange = (e) => {
+  const handleFileInputChange = (e: any) => {
     const file = e.target.files[0];
     previewFile(file);
     setSelectedFile(file);
@@ -17,7 +18,7 @@ const Upload = ({ setImage, previewSource, setPreviewSource }) => {
 
   };
 
-  const previewFile = (file) => {
+  const previewFile = (file: File) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
@@ -25,7 +26,7 @@ const Upload = ({ setImage, previewSource, setPreviewSource }) => {
     };
   };
 
-  const handleSubmitFile = (e) => {
+  const handleSubmitFile = (e: any) => {
     // e.preventDefault();
     if (!selectedFile) return;
     const reader = new FileReader();
@@ -35,7 +36,7 @@ const Upload = ({ setImage, previewSource, setPreviewSource }) => {
     };
   };
 
-  const uploadImage = async (file) => {
+  const uploadImage = async (file: any) => {
     const formData = new FormData();
     formData.append('image', file);
 
