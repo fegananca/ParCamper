@@ -4,9 +4,8 @@ import React, { useState } from 'react';
 import FindMe from './FindMe';
 import './addPlace.css';
 import { useNavigate } from 'react-router-dom';
-import parking from '../Pages/images/clarity_campervan-solid.png';
-// import dotenv from 'dotenv';
-// dotenv.config();
+import { Coordinates } from '../Interfaces/addPlaces.interfaces';
+const parking = require('../Pages/images/clarity_campervan-solid.png');
 
 const center = {
   lat: 40.4637,
@@ -21,39 +20,46 @@ const containerStyle = {
 const API_KEY = process.env.REACT_APP_GMAPS_API_KEY;
 
 const AddPlace = () => {
-  const [coordinates, setCoordinates] = useState('');
+  const [coordinates, setCoordinates] = useState<Coordinates | string>('');
 
   const navigate = useNavigate();
 
-  const mapRef = React.useRef();
+  const mapRef = React.useRef<google.maps.Map | null>(null);
 
-  const onMapLoad = React.useCallback((map) => {
+  const onMapLoad = React.useCallback((map: google.maps.Map ) => {
+
     mapRef.current = map;
   }, []);
 
   const panTo = React.useCallback(
-    ({ lat, lng }) => {
-      mapRef.current.panTo({ lat, lng });
-      mapRef.current.setZoom(15);
+    ({ lat, lng }:{lat: number, lng: number}) => {
+      if(mapRef.current !== null){
+        mapRef.current.panTo({ lat, lng });
+        mapRef.current.setZoom(15);
+      }
     },
     [mapRef]
   );
 
   const panToFind = React.useCallback(
-    ({ lat, lng }) => {
-      mapRef.current.panTo({ lat, lng });
-      mapRef.current.setZoom(20);
+    ({ lat, lng }:{lat: number, lng: number}) => {
+      if(mapRef.current !== null){
+        mapRef.current.panTo({ lat, lng });
+        mapRef.current.setZoom(20);
+      }
     },
     [mapRef]
   );
 
   const setMarker = [coordinates];
 
-  const onClickMap = (event) => {
-    setCoordinates({
-      lat: event.latLng.lat(),
-      lon: event.latLng.lng(),
-    });
+  const onClickMap = (event: google.maps.MapMouseEvent | null) => {
+    if(event && event.latLng){
+      setCoordinates({
+        lat: event.latLng.lat(),
+        lon: event.latLng.lng(),
+      });
+    }
   };
 
   const toAddForm = () => {
@@ -73,14 +79,15 @@ const AddPlace = () => {
         <Search panTo={panTo}></Search>
       </div>
       <div className='add-place-container'>
-      <LoadScript googleMapsApiKey={API_KEY} language='en'>
+      <LoadScript googleMapsApiKey={API_KEY as string} language='en'>
         <GoogleMap
           mapContainerClassName='map-add'
           mapContainerStyle={containerStyle}
           center={center}
           zoom={6}
-          onLoad={onMapLoad}
+          onLoad={onMapLoad as ()=> void}
           onClick={onClickMap}
+
         >
           {setMarker &&
             setMarker.map((coord) => {
@@ -88,8 +95,8 @@ const AddPlace = () => {
                 <Marker
                   key={JSON.stringify(coord)}
                   position={{
-                    lat: parseFloat(coord.lat),
-                    lng: parseFloat(coord.lon),
+                    lat: Number((coord as Coordinates).lat),
+                    lng: Number((coord as Coordinates).lon),
                   }}
                   icon={{
                     url: parking,
