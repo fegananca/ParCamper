@@ -64,8 +64,6 @@ const AddPlace = () => {
     }
   };
 
-
-
   return (
     <div className='container-add'>
       <div className='search-header'>
@@ -73,34 +71,34 @@ const AddPlace = () => {
         <Search panTo={panTo}></Search>
       </div>
       <div className='add-place-container'>
-      <LoadScript googleMapsApiKey={API_KEY} language='en'>
-        <GoogleMap
-          mapContainerClassName='map-add'
-          mapContainerStyle={containerStyle}
-          center={center}
-          zoom={6}
-          onLoad={onMapLoad}
-          onClick={onClickMap}
-        >
-          {setMarker &&
-            setMarker.map((coord) => {
-              return (
-                <Marker
-                  key={JSON.stringify(coord)}
-                  position={{
-                    lat: parseFloat(coord.lat),
-                    lng: parseFloat(coord.lon),
-                  }}
-                  icon={{
-                    url: parking,
-                    origin: new window.google.maps.Point(0, 0),
-                    anchor: new window.google.maps.Point(15, 15),
-                    scaledSize: new window.google.maps.Size(30, 30),
-                  }}
-                ></Marker>
-              );
-            })}
-        </GoogleMap>
+        <LoadScript googleMapsApiKey={API_KEY} language='en'>
+          <GoogleMap
+            mapContainerClassName='map-add'
+            mapContainerStyle={containerStyle}
+            center={center}
+            zoom={6}
+            onLoad={onMapLoad}
+            onClick={onClickMap}
+          >
+            {setMarker &&
+              setMarker.map((coord) => {
+                return (
+                  <Marker
+                    key={JSON.stringify(coord)}
+                    position={{
+                      lat: parseFloat(coord.lat),
+                      lng: parseFloat(coord.lon),
+                    }}
+                    icon={{
+                      url: parking,
+                      origin: new window.google.maps.Point(0, 0),
+                      anchor: new window.google.maps.Point(15, 15),
+                      scaledSize: new window.google.maps.Size(30, 30),
+                    }}
+                  ></Marker>
+                );
+              })}
+          </GoogleMap>
         </LoadScript>
         <button type='button' className='btn-next' onClick={() => toAddForm()}>
           Next

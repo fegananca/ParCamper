@@ -1,8 +1,7 @@
-export interface File {
-  name: string;
-  lastModified: number;
-  lastModifiedDate: Date;
-  webkitRelativePath: string;
-  size: number;
-  type: string;
+import { Dispatch, SetStateAction } from 'react';
+
+export interface UploadProps {
+  setImage: Dispatch<SetStateAction<any>>;
+  previewSource: any;
+  setPreviewSource: Dispatch<SetStateAction<any>>;
 }

@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction } from 'react';
 
 export interface User {
   display_name: string;
@@ -8,3 +8,5 @@ export interface Playlist {
   name: string;
   uri: string;
 }
+
+// set_id: Dispatch<SetStateAction<string>>
