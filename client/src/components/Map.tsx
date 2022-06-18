@@ -8,8 +8,9 @@ import { useState } from 'react';
 import LocationInfo from './LocationInfo';
 import Search from './Search';
 import { Icon } from '@iconify/react';
-import { LocationInfoInterface } from '../Interfaces/Map.interface';
+import { FetchedPlace, LocationInfoInterface } from '../Interfaces/Map.interface';
 import ButtonAdd  from './ButtonAdd';
+import { OnAddPlace } from '../Interfaces/AddForm.interface';
 const parking = require('../Pages/images/clarity_campervan-solid.png');
 
 
@@ -23,7 +24,7 @@ const containerStyle = {
   height: '100vw',
 };
 
-const Map = ({ places }: {places: any}) => {
+const Map = ({ places }: {places: OnAddPlace[]}) => {
   const [locationInfo, setLocationInfo] = useState<LocationInfoInterface | null>(null);
 
   const mapOptions = {
@@ -83,7 +84,7 @@ const Map = ({ places }: {places: any}) => {
           onLoad={onMapLoad as ()=> void}
           options={mapOptions} 
         >
-          {places.map((data :any) => (
+          {(places as unknown as FetchedPlace[]).map((data : FetchedPlace) => (
             <Marker
               key={data._id}
               position={{
