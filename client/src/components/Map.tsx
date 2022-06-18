@@ -38,7 +38,6 @@ const Map = ({ places }: {places: any}) => {
 
   const onMapLoad = React.useCallback((map: google.maps.Map ) => {
     mapRef.current = map;
-
   }, []);
 
   const panTo = React.useCallback(
@@ -82,8 +81,7 @@ const Map = ({ places }: {places: any}) => {
           center={center}
           zoom={7}
           onLoad={onMapLoad as ()=> void}
-          options={mapOptions}
-          
+          options={mapOptions} 
         >
           {places.map((data :any) => (
             <Marker
@@ -117,7 +115,6 @@ const Map = ({ places }: {places: any}) => {
               onCloseClick={() => {
                 setLocationInfo(null);
               }}
-              //
               position={{ lat: locationInfo.lat, lng: locationInfo.lng }}
             >
               {locationInfo && <LocationInfo info={locationInfo} />}

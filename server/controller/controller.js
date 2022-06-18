@@ -1,5 +1,5 @@
 const places = require('../models/schema');
-const { uploadFile, getFileStream } = require('../s3');
+const { uploadFile } = require('../s3');
 
 const getPlaces = async (req, res) => {
   try {
@@ -29,8 +29,6 @@ const postPlaces = async (req, res) => {
         thumbnail: req.body.thumbnail,
       },
     });
-
-    console.log(result);
     res.status(201);
     res.send(result);
   } catch (error) {
@@ -39,21 +37,17 @@ const postPlaces = async (req, res) => {
   }
 };
 
-const getImages = async (req, res) => {
-  const key = req.params.key;
-  const readStream = getFileStream(key);
-  readStream.pipe(res);
-};
+// const getImages = async (req, res) => {
+//   const key = req.params.key;
+//   console.log(key);
+// const readStream = getFileStream(key);
+// readStream.pipe(res);
+//};
 
 const postImages = async (req, res) => {
   try {
-    const file = req.file;
+    const file = req.file.buffer;
     const result = await uploadFile(file);
-    // const postimage = await places.create({
-    //   _source: {
-    //     thumbnail: result.Location,
-    //   },
-    // });
     res.status(200);
     res.send(result.Location);
   } catch (error) {
@@ -62,4 +56,4 @@ const postImages = async (req, res) => {
   }
 };
 
-module.exports = { getPlaces, postPlaces, postImages, getImages };
+module.exports = { getPlaces, postPlaces, postImages };

@@ -35,7 +35,7 @@ const Upload = ({ setImage, previewSource, setPreviewSource }: UploadProps) => {
   const uploadImage = async (file: File) => {
     const formData = new FormData();
     formData.append('image', file);
-   
+    console.log(formData)
     try {
       const res = await fetch('http://localhost:3001/images', {
         method: 'POST',

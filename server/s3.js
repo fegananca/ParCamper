@@ -1,6 +1,6 @@
 require('dotenv').config();
-const fs = require('fs');
 const S3 = require('aws-sdk/clients/s3');
+const uniqId = require('uniqid');
 
 const bucketName = process.env.AWS_BUCKET_NAME;
 const region = process.env.BUCKET_REGION;
@@ -18,11 +18,10 @@ const s3 = new S3({
 
 //upload file to s3
 function uploadFile(file) {
-  const fileStream = fs.createReadStream(file.path);
   const uploadParams = {
     Bucket: bucketName,
-    Body: fileStream,
-    Key: file.filename,
+    Body: file,
+    Key: uniqId(),
   };
   return s3.upload(uploadParams).promise();
 }
@@ -31,7 +30,6 @@ exports.uploadFile = uploadFile;
 //download file from s3
 
 function getFileStream(fileKey) {
-  console.log(fileKey, 'fileKey');
   const downloadParams = {
     Key: fileKey,
     Bucket: bucketName,
