@@ -2,8 +2,7 @@ import React from 'react';
 import {
   GoogleMap,
   Marker,
-  InfoWindow,
-  LoadScript,
+  InfoWindow
 } from '@react-google-maps/api';
 import { useState } from 'react';
 import LocationInfo from './LocationInfo';
@@ -23,8 +22,6 @@ const containerStyle = {
   width: '100vw',
   height: '100vw',
 };
-
-const API_KEY = process.env.REACT_APP_GMAPS_API_KEY;
 
 const Map = ({ places }: {places: any}) => {
   const [locationInfo, setLocationInfo] = useState<LocationInfoInterface | null>(null);
