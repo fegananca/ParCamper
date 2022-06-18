@@ -7,8 +7,7 @@ import { Icon } from '@iconify/react';
 import './addPlace.css';
 import { Coordinates, OnAddPlace } from '../Interfaces/AddForm.interface';
 
-
-const AddForm = ({ onAdd }: {onAdd: (arg0: OnAddPlace) => void}) => {
+const AddForm = ({ onAdd }: { onAdd: (arg0: OnAddPlace) => void }) => {
   const [previewSource, setPreviewSource] = useState<string>('');
   const locationAddPlace = useLocation();
   const [subtitle, setSubtitle] = useState<string>('');
@@ -21,8 +20,14 @@ const AddForm = ({ onAdd }: {onAdd: (arg0: OnAddPlace) => void}) => {
 
   const navigate = useNavigate();
 
-  const toogleTitle = () => setTitleBox(!showTitleBox);
-  const toogleReview = () => setReviewBox(!showReviewBox);
+  const toogleTitle = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    setTitleBox(!showTitleBox);
+  };
+  const toogleReview = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    setReviewBox(!showReviewBox);
+  };
 
   const onSubmit = () => {
     onAdd({
@@ -46,91 +51,72 @@ const AddForm = ({ onAdd }: {onAdd: (arg0: OnAddPlace) => void}) => {
   };
 
   return (
-    <>
-      <div className='navbar'>
-        <div className='next-header'>
-          <Icon
-            icon='clarity:campervan-solid'
-            width={130}
-            height={130}
-            className='icon-logo'
-          />
-          <span>Help us grow our community</span>
-        </div>
-
-        <div className='menu'>
-          <ul>
-            <li>
-              <div className='menu-bar' id='menu-1'>
-                <Upload
-                  previewSource={previewSource}
-                  setPreviewSource={setPreviewSource}
-                  setImage={setImage}
-                ></Upload>
-                {/* <div className="img-upload">{image}</div> */}
-              </div>
-            </li>
-            <li>
-              <div className='menu-bar' id='menu-2'>
-                <button className='btn-1' onClick={toogleTitle}>
-                  <Icon
-                    className='icon-desc'
-                    icon='ooui:text-summary-ltr'
-                    height={100}
-                    width={100}
-                  />
-                  <p id='upload-label'>Brief description</p>
-                </button>
-                <ul>
-                  <textarea
-                    className={showTitleBox ? 'add-subtitle' : 'display-none'}
-                    placeholder='Add a brief description of the place'
-                    value={subtitle}
-                    onChange={(e) => setSubtitle(e.target.value)}
-                  />
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div className='menu-bar' id='menu-3'>
-                <button className='btn-2' onClick={toogleReview}>
-                  <Icon icon='uil:feedback' height={100} width={100} />
-                  <p id='feedback-label'>Feedback</p>
-                </button>
-                <ul>
-                  <Rating
-                    rating={rating}
-                    onRating={(rate: any) => setRating(rate)}
-                  ></Rating>
-                  <textarea
-                    className={showReviewBox ? 'add-review' : 'display-none'}
-                    placeholder='Please write a review'
-                    value={review}
-                    onChange={(e) => setReview(e.target.value)}
-                  />
-                </ul>
-              </div>
-            </li>
-
-            <li>
-              <div className='menu-bar' id='menu-4'>
-                <button id='form-submit' onClick={() => onSubmit()}>
-                  <div>
-                    <Icon
-                      className='icon-submit'
-                      icon='material-symbols:download-done-outline'
-                      height={50}
-                      width={50}
-                    />
-                  </div>
-                  <span id='submit-label'>Submit</span>
-                </button>
-              </div>
-            </li>
-          </ul>
-        </div>
+    <div className='navbar'>
+      <div className='next-header'>
+        <Icon
+          icon='clarity:campervan-solid'
+          width={130}
+          height={130}
+          className='icon-logo'
+        />
+        <span>Help us grow our community</span>
       </div>
-    </>
+
+      <form className='menu'>
+        <div className='menuButton'>
+          <Upload
+            previewSource={previewSource}
+            setPreviewSource={setPreviewSource}
+            setImage={setImage}
+          ></Upload>
+        </div>
+        <div className='menuButton'>
+          <button className='btn-1' onClick={toogleTitle}>
+            <Icon
+              className='icon-desc'
+              icon='ooui:text-summary-ltr'
+              height={100}
+              width={100}
+            />
+            <p id='upload-label'>Brief description</p>
+          </button>
+          <input
+            type='textarea'
+            className={showTitleBox ? 'add-subtitle' : 'display-none'}
+            placeholder='Add a brief description of the place'
+            value={subtitle}
+            onChange={(e) => setSubtitle(e.target.value)}
+          />
+        </div>
+        <div className='menuButton'>
+          <button className='btn-1' onClick={toogleReview}>
+            <Icon icon='uil:feedback' height={100} width={100} />
+            <p id='feedback-label'>Feedback</p>
+          </button>
+          <input
+            type='textarea'
+            className={showReviewBox ? 'add-review' : 'display-none'}
+            placeholder='Please write a review'
+            value={review}
+            onChange={(e) => setReview(e.target.value)}
+          />
+        </div>
+        <Rating rating={rating} onRating={(rate: any) => setRating(rate)} />
+        <div className='menuButton' id='menu-4'>
+          <button id='form-submit' onClick={() => onSubmit()}>
+            <div>
+              <Icon
+                className='icon-submit'
+                icon='material-symbols:download-done-outline'
+                height={50}
+                width={50}
+              />
+            </div>
+            <span id='submit-label'>Submit</span>
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
 

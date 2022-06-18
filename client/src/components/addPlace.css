@@ -11,6 +11,7 @@
   padding-left: 3%;
 }
 
+
 .next-header {
   background-color: rgb(0, 0, 0, 0.1);
   display: flex;
@@ -91,9 +92,7 @@
   border-radius: 20px;
 }
 
-#upload-label {
-  margin-left: 5%;
-}
+
 
 .add-subtitle {
   width: 40%;
@@ -111,9 +110,7 @@
 .add-subtitle textarea {
   color: white;
 }
-.menu-bar ul {
-  width: 80%;
-}
+
 
 .add-subtitle,
 .add-review::placeholder {
@@ -137,6 +134,7 @@
   cursor: pointer;
   margin-left: 3%;
   width: 200px;
+  margin-bottom: 24px;
 }
 .add-review {
   border-radius: 10px;
@@ -180,13 +178,15 @@
   border: transparent;
 }
 
-#menu-2,
-#menu-3,
-#menu-4,
-#menu-1 {
+.menuButton {
   display: flex;
-  height: 10vw;
-  width: 100vw;
+  width: 80%;
+  height: 160px;
+  margin: 12px;
+}
+
+#menu-4 {
+  margin-left: 40px;
 }
 
 #menu-4 span {
@@ -216,29 +216,16 @@
   align-items: center;
   justify-content: center;
   padding-right: 55px;
-  height: 15vh;
-  opacity: 0.5;
-}
-.btn-2 {
-  background-color: #ecdd7b;
-  font-family: 'Poppins', sans-serif;
-  font-size: 30px;
-  color: #555555;
-  border: transparent;
-  border-radius: 10px;
-  width: 30%;
-  box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-right: 100px;
+  padding-left: 12px;
   height: 15vh;
   opacity: 0.5;
 }
 
 #feedback-label {
   margin-left: 10%;
+
+}#upload-label {
+  margin-left: 5%;
 }
 
 #form-submit {

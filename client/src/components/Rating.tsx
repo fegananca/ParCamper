@@ -1,5 +1,4 @@
 import React, { useMemo, useState } from 'react';
-import PropTypes from 'prop-types';
 import { Icon } from '@iconify/react';
 import { RatingProps } from '../Interfaces/Rating.interface';
 
@@ -31,19 +30,9 @@ const Rating = ({ count, rating, color, onRating }: RatingProps) => {
           onMouseLeave={() => setHoverRating(0)}
         />
       ));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count, rating, hoverRating]);
   return <div className='rating'>{starRating}</div>;
-};
-
-Rating.propTypes = {
-  count: PropTypes.number,
-  rating: PropTypes.number,
-  onchange: PropTypes.func,
-  color: {
-    filled: PropTypes.string,
-    unfilled: PropTypes.string,
-  },
 };
 
 Rating.defaultProps = {
