@@ -37,13 +37,6 @@ const postPlaces = async (req, res) => {
   }
 };
 
-// const getImages = async (req, res) => {
-//   const key = req.params.key;
-//   console.log(key);
-// const readStream = getFileStream(key);
-// readStream.pipe(res);
-//};
-
 const postImages = async (req, res) => {
   try {
     const file = req.file.buffer;
