@@ -5,6 +5,7 @@ import { Icon } from '@iconify/react';
 
 
 import { Dispatch, SetStateAction } from 'react';
+import { postImage } from '../Services/Services';
 
 interface UploadProps {
   setImage: Dispatch<SetStateAction<string>>;
@@ -27,21 +28,13 @@ const Upload = ({ setImage, previewSource, setPreviewSource }: UploadProps) => {
   const previewFile = (file: File) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
-    // reader.onloadend = () => {
-    //   setPreviewSource(reader.result);
-    // };
   };
 
   const uploadImage = async (file: File) => {
     const formData = new FormData();
     formData.append('image', file);
-    console.log(formData)
     try {
-      const res = await fetch('http://localhost:3001/images', {
-        method: 'POST',
-        body: formData,
-      });
-      const url = await res.text();
+      const url = await postImage(formData)
       setImage(url);
       setFileInputState('');
       setPreviewSource(url);
