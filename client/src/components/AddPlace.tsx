@@ -1,4 +1,4 @@
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { GoogleMap, Marker } from '@react-google-maps/api';
 import Search from './Search';
 import React, { useState } from 'react';
 import FindMe from './FindMe';
@@ -19,7 +19,6 @@ const containerStyle = {
   height: '40vw',
 };
 
-const API_KEY = process.env.REACT_APP_GMAPS_API_KEY;
 
 const AddPlace = () => {
   const [coordinates, setCoordinates] = useState<Coordinates | string>('');
@@ -37,17 +36,7 @@ const AddPlace = () => {
     ({ lat, lng }:{lat: number, lng: number}) => {
       if(mapRef.current !== null){
         mapRef.current.panTo({ lat, lng });
-        mapRef.current.setZoom(15);
-      }
-    },
-    [mapRef]
-  );
-
-  const panToFind = React.useCallback(
-    ({ lat, lng }:{lat: number, lng: number}) => {
-      if(mapRef.current !== null){
-        mapRef.current.panTo({ lat, lng });
-        mapRef.current.setZoom(20);
+        mapRef.current.setZoom(18);
       }
     },
     [mapRef]
@@ -75,11 +64,11 @@ const AddPlace = () => {
   return (
     <div className='container-add'>
       <div className='search-header'>
-        <FindMe panTo={panToFind} />
+        <FindMe panTo={panTo} />
         <Search panTo={panTo}></Search>
       </div>
       <div className='add-place-container'>
-      <LoadScript googleMapsApiKey={API_KEY as string} language='en'>
+     
         <GoogleMap
           mapContainerClassName='map-add'
           mapContainerStyle={containerStyle}
@@ -108,7 +97,7 @@ const AddPlace = () => {
               );
             })}
         </GoogleMap>
-        </LoadScript>
+       
         <button type='button' className='btn-next' onClick={() => toAddForm()}>
           Next
         </button>

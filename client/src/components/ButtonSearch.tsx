@@ -11,8 +11,8 @@ const ButtonSearch = () => {
           width={20}
           height={20}
         />
-      </Link>
       <p id="search-map">Map</p>
+      </Link>
     </button>
   );
 };
