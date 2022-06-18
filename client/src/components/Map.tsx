@@ -78,7 +78,7 @@ const Map = ({ places }: {places: any}) => {
         <Icon icon='healthicons:electricity-outline' width={50} height={40} />
         <Icon icon='iconoir:internet' width={50} height={40} />
       </div>
-      <LoadScript googleMapsApiKey={API_KEY as string} language='en'>
+     
         <GoogleMap
           mapContainerClassName='map'
           mapContainerStyle={containerStyle}
@@ -86,6 +86,7 @@ const Map = ({ places }: {places: any}) => {
           zoom={7}
           onLoad={onMapLoad as ()=> void}
           options={mapOptions}
+          
         >
           {places.map((data :any) => (
             <Marker
@@ -126,7 +127,7 @@ const Map = ({ places }: {places: any}) => {
             </InfoWindow>
           ) : null}
         </GoogleMap>
-      </LoadScript>
+  
     </div>
   );
 };
