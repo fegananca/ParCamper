@@ -129,7 +129,7 @@ body {
 }
 
 #name {
-  width: 100%;
+  width: 10%;
   height: 80vh;
   font-size: 90px;
   -webkit-text-stroke: 0.0001px #cdc7bc;
@@ -147,6 +147,7 @@ body {
   align-items: center;
   justify-content: center;
   position: absolute;
+  z-index: 20;
   bottom: 5%;
   right: 50%;
   background-color: #ecdd7b;
@@ -157,6 +158,7 @@ body {
   color: rgb(93, 90, 90);
   font-family: 'Poppins', sans-serif;
   opacity: 0.6;
+  cursor: pointer;
 }
 
 .button-enter:hover {
@@ -166,7 +168,6 @@ body {
 .enter-icon {
   margin-right: 10px;
   color: rgb(93, 90, 90);
-  margin-top: 13%;
 }
 
 /* .logo {

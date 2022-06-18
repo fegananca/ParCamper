@@ -3,8 +3,8 @@ import { Icon } from '@iconify/react';
 
 const ButtonSearch = () => {
   return (
-    <button type="button" className="button-enter">
       <Link to={'/search'}>
+    <button type="button" className="button-enter">
         <Icon
           className="enter-icon"
           icon="akar-icons:map"
@@ -12,8 +12,8 @@ const ButtonSearch = () => {
           height={20}
         />
       <p id="search-map">Map</p>
-      </Link>
     </button>
+      </Link>
   );
 };
 
