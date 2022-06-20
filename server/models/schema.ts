@@ -1,4 +1,4 @@
-const { mongoose } = require('./db');
+import mongoose from './db';
 
 const placesList = new mongoose.Schema({
   _source: {
@@ -23,4 +23,4 @@ const placesList = new mongoose.Schema({
 
 const places = mongoose.model('hits', placesList);
 
-module.exports = places;
+export default places;

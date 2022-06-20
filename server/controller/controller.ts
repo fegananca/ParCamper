@@ -1,7 +1,8 @@
-const places = require('../models/schema');
-const { uploadFile } = require('../s3');
+import places from '../models/schema';
+import { Request, Response } from 'express';
+import s3 from '../s3';
 
-const getPlaces = async (req, res) => {
+const getPlaces = async (req: Request, res: Response) => {
   try {
     const placesList = await places.find();
     res.status(200);
@@ -11,7 +12,7 @@ const getPlaces = async (req, res) => {
   }
 };
 
-const postPlaces = async (req, res) => {
+const postPlaces = async (req: Request, res: Response) => {
   try {
     let result = await places.create({
       _source: {
@@ -21,10 +22,8 @@ const postPlaces = async (req, res) => {
           lon: req.body.location.lon,
         },
         filters: {
-          //numberOfReviews: ,
           rating: req.body.rating,
           review: req.body.review,
-          // prices: req.body.prices,
         },
         thumbnail: req.body.thumbnail,
       },
@@ -37,16 +36,18 @@ const postPlaces = async (req, res) => {
   }
 };
 
-const postImages = async (req, res) => {
+const postImages = async (req: Request, res: Response) => {
   try {
-    const file = req.file.buffer;
-    const result = await uploadFile(file);
-    res.status(200);
-    res.send(result.Location);
+    if (req.file) {
+      const file = req.file.buffer;
+      const result = await s3.uploadFile(file);
+      res.status(200);
+      res.send(result.Location);
+    }
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Something went wrong' });
   }
 };
 
-module.exports = { getPlaces, postPlaces, postImages };
+export default { getPlaces, postPlaces, postImages };
