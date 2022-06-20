@@ -1,12 +1,8 @@
 const express = require('express');
 const router = require('../router/router');
-const placesList = require('../models/schema');
 const mockdata = require('./mockdata');
-
+const placesList = require('../models/schema');
 const supertest = require('supertest');
-
-const mongoose = require('mongoose');
-const testingDb = 'test';
 
 describe('Integration tests', () => {
   const app = express();
@@ -14,11 +10,6 @@ describe('Integration tests', () => {
   app.use(router);
 
   const request = supertest(app);
-
-  beforeAll(async () => {
-    const url = `mongodb://localhost:27017/${testingDb}`;
-    mongoose.createConnection(url, { useNewUrlParser: true });
-  });
 
   afterEach(async () => {
     await placesList.deleteMany();
