@@ -12,6 +12,7 @@ const getPlaces = async (req, res) => {
 };
 
 const postPlaces = async (req, res) => {
+  console.log(req.body.location);
   try {
     let result = await places.create({
       _source: {
