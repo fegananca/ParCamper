@@ -1,8 +1,14 @@
-const express = require('express');
-const router = require('../router/router');
-const mockdata = require('./mockdata');
-const placesList = require('../models/schema');
-const supertest = require('supertest');
+import express from 'express';
+// const express = require('express');
+// const router = require('../router/router');
+// const mockdata = require('./mockdata');
+// const placesList = require('../models/schema');
+// const supertest = require('supertest');
+
+import router from '../router/router';
+import mockdata from './mockdata';
+import placesList from '../models/schema';
+import supertest from 'supertest';
 
 describe('Integration tests', () => {
   const app = express();
