@@ -23,8 +23,8 @@ const AddPlace = () => {
 
   const navigate = useNavigate();
 
+  //render second map
   const mapRef = React.useRef<google.maps.Map | null>(null);
-
   const onMapLoad = React.useCallback((map: google.maps.Map) => {
     mapRef.current = map;
   }, []);

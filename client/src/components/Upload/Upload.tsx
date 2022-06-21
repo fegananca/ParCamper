@@ -2,7 +2,6 @@ import React from 'react';
 import './Upload.css';
 import { useState } from 'react';
 import { Icon } from '@iconify/react';
-
 import { Dispatch, SetStateAction } from 'react';
 import { postImage } from '../../Services/Services';
 
@@ -13,8 +12,8 @@ interface UploadProps {
 }
 
 const Upload = ({ setImage, previewSource, setPreviewSource }: UploadProps) => {
+  //used for handle the photo upload and show the file preview
   const [fileInputState, setFileInputState] = useState<string>('');
-
   const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const file = e.target.files[0];
@@ -22,11 +21,6 @@ const Upload = ({ setImage, previewSource, setPreviewSource }: UploadProps) => {
       setFileInputState(e.target.value);
       uploadImage(file);
     }
-  };
-
-  const previewFile = (file: File) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
   };
 
   const uploadImage = async (file: File) => {
@@ -40,6 +34,11 @@ const Upload = ({ setImage, previewSource, setPreviewSource }: UploadProps) => {
     } catch (err) {
       console.error(err);
     }
+  };
+
+  const previewFile = (file: File) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
   };
 
   return (

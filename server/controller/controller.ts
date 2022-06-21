@@ -53,6 +53,7 @@ const postImages = async (req: Request, res: Response) => {
 
 const removeAllTestData = async (req: Request, res: Response) => {
   try {
+    //we check if the db is the one that we use for the test
     if ((db.key as string).includes('test')) {
       await places.deleteMany({});
       res.status(200);

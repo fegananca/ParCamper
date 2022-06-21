@@ -2,6 +2,7 @@ import './LocationInfo.css';
 import { Icon } from '@iconify/react';
 import { LocationInfoInterface } from '../../Interfaces/Map.interface';
 
+//location card's info on the marker
 const LocationInfo = ({ info }: { info: LocationInfoInterface }) => {
   return (
     <div className='location-info'>

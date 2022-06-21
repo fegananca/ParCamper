@@ -6,6 +6,7 @@ interface PanToArgs {
   lng: number;
 }
 
+//using api to detect your current location
 const FindMe = ({ panTo }: { panTo: (arg0: PanToArgs) => void }) => {
   return (
     <button

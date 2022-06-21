@@ -2,7 +2,9 @@ import React, { useMemo, useState } from 'react';
 import { Icon } from '@iconify/react';
 import { RatingProps } from '../Interfaces/Rating.interface';
 
+//rating = stars on form
 const Rating = ({ count, rating, color, onRating }: RatingProps) => {
+  //based on mouse hover we change the color of the stars
   const [hoverRating, setHoverRating] = useState(0);
   const getColor = (index: number) => {
     if (hoverRating >= index) {
@@ -13,6 +15,7 @@ const Rating = ({ count, rating, color, onRating }: RatingProps) => {
     return color.unfilled;
   };
 
+  //rendering the five stars in gray
   const starRating = useMemo(() => {
     return Array(count)
       .fill(0)
@@ -35,6 +38,7 @@ const Rating = ({ count, rating, color, onRating }: RatingProps) => {
   return <div className='rating'>{starRating}</div>;
 };
 
+//setting default parameter of the stars
 Rating.defaultProps = {
   count: 5,
   rating: 0,

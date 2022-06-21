@@ -23,6 +23,7 @@ const containerStyle = {
   height: '100vw',
 };
 
+//render map
 const Map = ({ places }: { places: OnAddPlace[] }) => {
   const [locationInfo, setLocationInfo] =
     useState<LocationInfoInterface | null>(null);
@@ -41,6 +42,7 @@ const Map = ({ places }: { places: OnAddPlace[] }) => {
     mapRef.current = map;
   }, []);
 
+  //Google function used for moving to any coordinates after a click on map
   const panTo = React.useCallback(
     ({ lat, lng }: { lat: number; lng: number }) => {
       if (mapRef.current !== null) {

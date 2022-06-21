@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Upload from '../../components/Upload/Upload';
 import { Icon } from '@iconify/react';
-// import parking from '../Pages/images/clarity_campervan-solid.png';
 import './AddForm.css';
 import { Coordinates, OnAddPlace } from '../../Interfaces/AddForm.interface';
 

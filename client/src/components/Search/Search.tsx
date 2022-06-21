@@ -3,6 +3,7 @@ import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
 } from 'use-places-autocomplete';
+//combobox is used for the Google autocomplete
 import {
   Combobox,
   ComboboxInput,
@@ -21,6 +22,7 @@ interface PanToArgs {
 
 const Search = ({ panTo }: { panTo: (arg0: PanToArgs) => void }) => {
   const {
+    //these are variables used by the Google api
     ready,
     value,
     suggestions: { status, data },

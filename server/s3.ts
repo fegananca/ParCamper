@@ -9,6 +9,7 @@ const region = process.env.BUCKET_REGION;
 const accessKeyId = process.env.AWS_ACCESS_KEY as string;
 const secretAccessKey = process.env.AWS_SECRET_KEY as string;
 
+//creating connection with AWS s3
 const s3 = new S3({
   region,
   apiVersion: 'latest',
@@ -17,6 +18,7 @@ const s3 = new S3({
     secretAccessKey,
   },
 });
+
 function uploadFile(file: Buffer) {
   const uploadParams = {
     Bucket: bucketName as string,
@@ -26,12 +28,12 @@ function uploadFile(file: Buffer) {
   return s3.upload(uploadParams).promise();
 }
 
-function getFileStream(fileKey: string) {
-  const downloadParams = {
-    Key: fileKey,
-    Bucket: bucketName as string,
-  };
-  return s3.getObject(downloadParams).createReadStream();
-}
+// function getFileStream(fileKey: string) {
+//   const downloadParams = {
+//     Key: fileKey,
+//     Bucket: bucketName as string,
+//   };
+//   return s3.getObject(downloadParams).createReadStream();
+// }
 
-export default { uploadFile, getFileStream };
+export default { uploadFile };
