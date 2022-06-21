@@ -1,8 +1,8 @@
-import Map from './components/Map/Map';
+import Map from './Pages/Map/Map';
 import { useState, useEffect } from 'react';
-import AddPlace from './components/AddPlace/AddPlace';
-import AddForm from './components/AddForm/AddForm';
-import MainPage from './components/MainPage/MainPage';
+import AddPlace from './Pages/AddPlace/AddPlace';
+import AddForm from './Pages/AddForm/AddForm';
+import MainPage from './Pages/MainPage/MainPage';
 import { Routes, Route } from 'react-router-dom';
 import { OnAddPlace } from './Interfaces/AddForm.interface';
 import { addNewPlaces, fetchAllPlaces } from './Services/Services';

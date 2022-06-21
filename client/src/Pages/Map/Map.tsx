@@ -2,16 +2,16 @@ import React from 'react';
 import './Map.css';
 import { GoogleMap, Marker, InfoWindow } from '@react-google-maps/api';
 import { useState } from 'react';
-import LocationInfo from '../LocationInfo/LocationInfo';
-import Search from '../Search/Search';
+import LocationInfo from '../../components/LocationInfo/LocationInfo';
+import Search from '../../components/Search/Search';
 import { Icon } from '@iconify/react';
 import {
   FetchedPlace,
   LocationInfoInterface,
 } from '../../Interfaces/Map.interface';
-import ButtonAdd from '../ButtonAdd/ButtonAdd';
+import ButtonAdd from '../../components/ButtonAdd/ButtonAdd';
 import { OnAddPlace } from '../../Interfaces/AddForm.interface';
-const parking = require('../../Pages/images/clarity_campervan-solid.png');
+const parking = require('../../images/clarity_campervan-solid.png');
 
 const center = {
   lat: 40.4637,

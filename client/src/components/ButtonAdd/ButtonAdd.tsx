@@ -1,6 +1,6 @@
 import './ButtonAdd.css';
 import { Link } from 'react-router-dom';
-const addIcon = require('../../Pages/images/fluent_add-24-filled.png');
+const addIcon = require('../../images/fluent_add-24-filled.png');
 
 const ButtonAdd = () => {
   return (

@@ -12,7 +12,7 @@ import {
 } from '@reach/combobox';
 import '@reach/combobox/styles.css';
 
-const searchIcon = require('../../Pages/images/arcticons_xiaoyuan-search.png');
+const searchIcon = require('../../images/arcticons_xiaoyuan-search.png');
 
 interface PanToArgs {
   lat: number;

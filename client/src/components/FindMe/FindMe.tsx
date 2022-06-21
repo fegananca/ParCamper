@@ -1,5 +1,5 @@
 import './FindMe.css';
-const compass = require('../../Pages/images/clarity_compass-solid.png');
+const compass = require('../../images/clarity_compass-solid.png');
 
 interface PanToArgs {
   lat: number;
