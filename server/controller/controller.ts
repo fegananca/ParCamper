@@ -1,6 +1,7 @@
 import places from '../models/schema';
 import { Request, Response } from 'express';
 import s3 from '../s3';
+import db from '../models/db';
 
 const getPlaces = async (req: Request, res: Response) => {
   try {
@@ -50,4 +51,18 @@ const postImages = async (req: Request, res: Response) => {
   }
 };
 
-export default { getPlaces, postPlaces, postImages };
+const removeAllTestData = async (req: Request, res: Response) => {
+  try {
+    if ((db.key as string).includes('test')) {
+      await places.deleteMany({});
+      res.status(200);
+      res.send();
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500);
+    res.send('Something went wrong!');
+  }
+};
+
+export default { getPlaces, postPlaces, postImages, removeAllTestData };

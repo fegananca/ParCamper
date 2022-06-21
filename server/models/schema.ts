@@ -1,6 +1,6 @@
-import mongoose from './db';
+import db from './db';
 
-const placesList = new mongoose.Schema({
+const placesList = new db.mongoose.Schema({
   _source: {
     subtitle: String,
     location: {
@@ -21,6 +21,6 @@ const placesList = new mongoose.Schema({
   },
 });
 
-const places = mongoose.model('hits', placesList);
+const places = db.mongoose.model('hits', placesList);
 
 export default places;

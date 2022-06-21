@@ -11,4 +11,6 @@ router.get('/places', controller.getPlaces);
 router.post('/places', controller.postPlaces);
 router.post('/images', upload.single('image'), controller.postImages);
 
+router.delete('/places/remove', controller.removeAllTestData);
+
 export default router;
