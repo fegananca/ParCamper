@@ -1,12 +1,12 @@
 import { GoogleMap, Marker } from '@react-google-maps/api';
-import Search from './Search';
+import Search from '../Search/Search';
 import React, { useState } from 'react';
-import FindMe from './FindMe';
-import './addPlace.css';
+import FindMe from '../FindMe/FindMe';
+import './AddPlace.css';
 import { useNavigate } from 'react-router-dom';
-import { Coordinates } from '../Interfaces/AddPlaces.interface';
+import { Coordinates } from '../../Interfaces/AddPlaces.interface';
 
-const parking = require('../Pages/images/clarity_campervan-solid.png');
+const parking = require('../../Pages/images/clarity_campervan-solid.png');
 
 const center = {
   lat: 40.4637,

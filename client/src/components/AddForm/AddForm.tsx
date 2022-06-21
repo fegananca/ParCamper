@@ -1,11 +1,11 @@
-import Rating from './Rating';
+import Rating from '../Rating';
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Upload from './Upload';
+import Upload from '../Upload/Upload';
 import { Icon } from '@iconify/react';
 // import parking from '../Pages/images/clarity_campervan-solid.png';
-import './addPlace.css';
-import { Coordinates, OnAddPlace } from '../Interfaces/AddForm.interface';
+import './AddForm.css';
+import { Coordinates, OnAddPlace } from '../../Interfaces/AddForm.interface';
 
 const AddForm = ({ onAdd }: { onAdd: (arg0: OnAddPlace) => void }) => {
   const [previewSource, setPreviewSource] = useState<string>('');
@@ -73,7 +73,7 @@ const AddForm = ({ onAdd }: { onAdd: (arg0: OnAddPlace) => void }) => {
         <section className='menuButton'>
           <button className='btn-1' onClick={toogleTitle}>
             <Icon
-              className='icon-desc'
+              //className='icon-desc'
               icon='ooui:text-summary-ltr'
               height={100}
               width={100}

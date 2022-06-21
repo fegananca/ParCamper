@@ -1,4 +1,4 @@
-import React from 'react';
+import './Search.css';
 import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
@@ -12,7 +12,7 @@ import {
 } from '@reach/combobox';
 import '@reach/combobox/styles.css';
 
-const searchIcon = require('../Pages/images/arcticons_xiaoyuan-search.png');
+const searchIcon = require('../../Pages/images/arcticons_xiaoyuan-search.png');
 
 interface PanToArgs {
   lat: number;
@@ -43,16 +43,19 @@ const Search = ({ panTo }: { panTo: (arg0: PanToArgs) => void }) => {
           }
         }}
       >
-        <ComboboxInput
-          value={value}
-          onChange={(e) => {
-            setValue(e.target.value);
-          }}
-          disabled={!ready}
-          placeholder='Where to?'
-          className='search-box search-container'
-        />
-        <img src={searchIcon} alt='icon-search' className='search-icon'></img>
+        <div className='search-container'>
+          <ComboboxInput
+            value={value}
+            onChange={(e) => {
+              setValue(e.target.value);
+            }}
+            disabled={!ready}
+            placeholder='Where to?'
+            className='search-box '
+          />
+
+          <img src={searchIcon} alt='icon-search' className='search-icon'></img>
+        </div>
         <ComboboxPopover>
           <ComboboxList>
             {status === 'OK' &&

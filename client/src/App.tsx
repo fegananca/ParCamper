@@ -1,8 +1,8 @@
-import Map from './components/Map';
+import Map from './components/Map/Map';
 import { useState, useEffect } from 'react';
-import AddPlace from './components/AddPlace';
-import AddForm from './components/AddForm';
-import MainPage from './components/MainPage';
+import AddPlace from './components/AddPlace/AddPlace';
+import AddForm from './components/AddForm/AddForm';
+import MainPage from './components/MainPage/MainPage';
 import { Routes, Route } from 'react-router-dom';
 import { OnAddPlace } from './Interfaces/AddForm.interface';
 import { addNewPlaces, fetchAllPlaces } from './Services/Services';
@@ -16,7 +16,7 @@ function App() {
   };
 
   const addPlaces = async (place: OnAddPlace) => {
-    const data = await addNewPlaces(place)
+    const data = await addNewPlaces(place);
     setPlaces([...places, data]);
   };
 

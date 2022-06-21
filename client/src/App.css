@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+.title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 80%;
+}
+
+.rating {
+  cursor: pointer;
+  margin-left: 3%;
+  width: 200px;
+  margin-bottom: 24px;
+}
+
+.container {
+  max-height: 100vh;
+}
+
+.map {
+  border-radius: 10px;
+}
+
+

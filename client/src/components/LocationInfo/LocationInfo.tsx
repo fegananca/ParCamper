@@ -1,5 +1,6 @@
+import './LocationInfo.css';
 import { Icon } from '@iconify/react';
-import { LocationInfoInterface } from '../Interfaces/Map.interface';
+import { LocationInfoInterface } from '../../Interfaces/Map.interface';
 
 const LocationInfo = ({ info }: { info: LocationInfoInterface }) => {
   return (

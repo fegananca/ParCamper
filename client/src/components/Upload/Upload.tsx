@@ -1,10 +1,10 @@
 import React from 'react';
+import './Upload.css';
 import { useState } from 'react';
-import './addPlace.css';
 import { Icon } from '@iconify/react';
 
 import { Dispatch, SetStateAction } from 'react';
-import { postImage } from '../Services/Services';
+import { postImage } from '../../Services/Services';
 
 interface UploadProps {
   setImage: Dispatch<SetStateAction<string>>;

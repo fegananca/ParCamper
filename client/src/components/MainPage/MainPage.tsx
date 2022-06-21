@@ -1,6 +1,7 @@
-import ButtonSearch from './ButtonSearch';
+import './MainPage.css';
+import ButtonSearch from '../ButtonSearch/ButtonSearch';
 import { useNavigate } from 'react-router-dom';
-const mainVideo = require('../Pages/images/pexels-pavel-danilyuk-9121392.mp4');
+const mainVideo = require('../../Pages/images/pexels-pavel-danilyuk-9121392.mp4');
 
 const MainPage = () => {
   const navigate = useNavigate();

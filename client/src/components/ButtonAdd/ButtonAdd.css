@@ -1,0 +1,24 @@
+.button-container {
+  position: relative;
+  border: transparent;
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.3);
+  background-color: transparent;
+  width: 150px;
+  height: 45px;
+}
+
+.add-icon {
+  background-color: #ecdd7b;
+  position: absolute;
+  right: 72%;
+  top: 8%;
+  border-radius: 20px;
+  height: 90%;
+}
+
+#add-place {
+  font-family: 'Poppins', sans-serif;
+  margin-left: 30px;
+  color: grey;
+}

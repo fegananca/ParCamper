@@ -1,0 +1,26 @@
+.wrapper {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.wrapper video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+}
+
+#name {
+  width: 10%;
+  height: 80vh;
+  font-size: 90px;
+  -webkit-text-stroke: 0.0001px #cdc7bc;
+  -webkit-text-fill-color: transparent;
+  position: absolute;
+  font-family: 'Tiro Telugu', serif;
+  left: 30px;
+  top: 110px;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+}

@@ -1,0 +1,151 @@
+.navbar {
+  /* background-image: url('/Users/fernandarodrigues/Codeworks/New-solo-project/my-app/src/Pages/images/pexels-sungmu-heo-2689631.jpg'); */
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.next-header {
+  background-color: rgb(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  padding: 50px;
+}
+
+.next-header h1 {
+  font-family: 'Tiro Telugu', serif;
+  font-size: 60px;
+  color: #323131;
+  margin-left: 2%;
+}
+
+.icon-logo {
+  color: #323131;
+  border: 2px solid #323131;
+  border-radius: 100px;
+  padding: 10px;
+}
+
+.menu {
+  float: unset;
+  min-height: 100vh;
+  width: 100%;
+  padding-left: 3%;
+}
+
+.menuButton {
+  display: flex;
+  width: 80%;
+  height: 160px;
+  margin: 12px;
+}
+
+.btn-1 {
+  background-color: #ecdd7b;
+  font-family: 'Poppins', sans-serif;
+  font-size: 30px;
+  color: #555555;
+  border: transparent;
+  border-radius: 10px;
+  width: 30%;
+  box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 55px;
+  padding-left: 12px;
+  height: 15vh;
+  opacity: 0.5;
+}
+
+.btn-1:hover,
+.label-upload:hover {
+  opacity: 1;
+}
+
+#upload-label {
+  margin-left: 5%;
+}
+
+.add-subtitle {
+  width: 40%;
+  height: 15vh;
+  border-radius: 10px;
+  border-color: transparent;
+  box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.3);
+  font-family: 'Poppins', sans-serif;
+  color: grey;
+  background-color: white;
+  margin-left: 1%;
+  font-size: 20px;
+}
+
+.add-subtitle textarea {
+  color: white;
+}
+
+.display-none {
+  display: none;
+}
+
+#feedback-label {
+  margin-left: 10%;
+}
+
+.add-subtitle,
+.add-review::placeholder {
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+#menu-4 {
+  margin-left: 40px;
+}
+
+#menu-4 span {
+  width: 100%;
+  display: flex;
+}
+
+#form-submit {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  border-color: transparent;
+  box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #ecdd7b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  color: #555555;
+  cursor: pointer;
+  height: 6vh;
+  opacity: 0.5;
+}
+
+#form-submit:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.icon-submit {
+  margin-left: 30px;
+}
+
+#submit-label {
+  font-size: 20px;
+}
+
+.add-review {
+  border-radius: 10px;
+  width: 550px;
+  height: 55%;
+  border-color: transparent;
+  box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.3);
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  color: grey;
+  margin-left: 1%;
+  background-color: white;
+}

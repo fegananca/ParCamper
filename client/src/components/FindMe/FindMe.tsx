@@ -1,15 +1,15 @@
-import React from 'react';
-const compass = require('../Pages/images/clarity_compass-solid.png');
+import './FindMe.css';
+const compass = require('../../Pages/images/clarity_compass-solid.png');
 
 interface PanToArgs {
   lat: number;
   lng: number;
 }
 
-const FindMe = ({ panTo }: {panTo: (arg0: PanToArgs) => void}) => {
+const FindMe = ({ panTo }: { panTo: (arg0: PanToArgs) => void }) => {
   return (
     <button
-      className="locate"
+      className='locate'
       onClick={() => {
         navigator.geolocation.getCurrentPosition(
           (position) => {
@@ -22,7 +22,7 @@ const FindMe = ({ panTo }: {panTo: (arg0: PanToArgs) => void}) => {
         );
       }}
     >
-      <img src={compass} alt="submit button" className="findme-icon"></img>
+      <img src={compass} alt='submit button' className='findme-icon'></img>
     </button>
   );
 };
