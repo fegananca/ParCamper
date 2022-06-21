@@ -1,0 +1,27 @@
+.button-enter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 20;
+  bottom: 5%;
+  right: 50%;
+  background-color: #ecdd7b; 
+  border-radius: 20px;
+  border: transparent;
+  width: 100px;
+  height: 40px;
+  color: rgb(93, 90, 90);
+  font-family: 'Poppins', sans-serif;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.button-enter:hover {
+  opacity: 1;
+}
+
+.enter-icon {
+  margin-right: 10px;
+  color: rgb(93, 90, 90);
+}
