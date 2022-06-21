@@ -51,26 +51,26 @@ const AddForm = ({ onAdd }: { onAdd: (arg0: OnAddPlace) => void }) => {
   };
 
   return (
-    <div className='navbar'>
-      <div className='next-header'>
+    <main className='navbar'>
+      <header className='next-header'>
         <Icon
           icon='clarity:campervan-solid'
           width={130}
           height={130}
           className='icon-logo'
         />
-        <span>Help us grow our community</span>
-      </div>
+        <h1>Help us grow our community</h1>
+      </header>
 
       <form className='menu'>
-        <div className='menuButton'>
+        <section className='menuButton'>
           <Upload
             previewSource={previewSource}
             setPreviewSource={setPreviewSource}
             setImage={setImage}
           ></Upload>
-        </div>
-        <div className='menuButton'>
+        </section>
+        <section className='menuButton'>
           <button className='btn-1' onClick={toogleTitle}>
             <Icon
               className='icon-desc'
@@ -87,8 +87,8 @@ const AddForm = ({ onAdd }: { onAdd: (arg0: OnAddPlace) => void }) => {
             value={subtitle}
             onChange={(e) => setSubtitle(e.target.value)}
           />
-        </div>
-        <div className='menuButton'>
+        </section>
+        <section className='menuButton'>
           <button className='btn-1' onClick={toogleReview}>
             <Icon icon='uil:feedback' height={100} width={100} />
             <p id='feedback-label'>Feedback</p>
@@ -100,23 +100,21 @@ const AddForm = ({ onAdd }: { onAdd: (arg0: OnAddPlace) => void }) => {
             value={review}
             onChange={(e) => setReview(e.target.value)}
           />
-        </div>
+        </section>
         <Rating rating={rating} onRating={(rate: any) => setRating(rate)} />
-        <div className='menuButton' id='menu-4'>
+        <section className='menuButton' id='menu-4'>
           <button id='form-submit' onClick={() => onSubmit()}>
-            <div>
-              <Icon
-                className='icon-submit'
-                icon='material-symbols:download-done-outline'
-                height={50}
-                width={50}
-              />
-            </div>
+            <Icon
+              className='icon-submit'
+              icon='material-symbols:download-done-outline'
+              height={50}
+              width={50}
+            />
             <span id='submit-label'>Submit</span>
           </button>
-        </div>
+        </section>
       </form>
-    </div>
+    </main>
   );
 };
 

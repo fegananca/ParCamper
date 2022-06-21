@@ -1,7 +1,7 @@
 import React from 'react';
 import usePlacesAutocomplete, {
   getGeocode,
-  getLatLng
+  getLatLng,
 } from 'use-places-autocomplete';
 import {
   Combobox,
@@ -19,18 +19,17 @@ interface PanToArgs {
   lng: number;
 }
 
-const Search = ({ panTo }: {panTo: (arg0: PanToArgs) => void }) => {
+const Search = ({ panTo }: { panTo: (arg0: PanToArgs) => void }) => {
   const {
     ready,
     value,
     suggestions: { status, data },
     setValue,
     clearSuggestions,
-  } = usePlacesAutocomplete(
-  );
+  } = usePlacesAutocomplete();
 
   return (
-    <div className="search">
+    <nav className='search'>
       <Combobox
         onSelect={async (address) => {
           setValue(address, false);
@@ -44,18 +43,16 @@ const Search = ({ panTo }: {panTo: (arg0: PanToArgs) => void }) => {
           }
         }}
       >
-        <div className="search-container">
-          <ComboboxInput
-            value={value}
-            onChange={(e) => {
-              setValue(e.target.value);
-            }}
-            disabled={!ready}
-            placeholder="Where to?"
-            className="search-box"
-          />
-          <img src={searchIcon} alt="icon-search" className="search-icon"></img>
-        </div>
+        <ComboboxInput
+          value={value}
+          onChange={(e) => {
+            setValue(e.target.value);
+          }}
+          disabled={!ready}
+          placeholder='Where to?'
+          className='search-box search-container'
+        />
+        <img src={searchIcon} alt='icon-search' className='search-icon'></img>
         <ComboboxPopover>
           <ComboboxList>
             {status === 'OK' &&
@@ -65,7 +62,7 @@ const Search = ({ panTo }: {panTo: (arg0: PanToArgs) => void }) => {
           </ComboboxList>
         </ComboboxPopover>
       </Combobox>
-    </div>
+    </nav>
   );
 };
 

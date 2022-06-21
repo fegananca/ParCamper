@@ -6,7 +6,6 @@ import './addPlace.css';
 import { useNavigate } from 'react-router-dom';
 import { Coordinates } from '../Interfaces/AddPlaces.interface';
 
-
 const parking = require('../Pages/images/clarity_campervan-solid.png');
 
 const center = {
@@ -19,7 +18,6 @@ const containerStyle = {
   height: '40vw',
 };
 
-
 const AddPlace = () => {
   const [coordinates, setCoordinates] = useState<Coordinates | string>('');
 
@@ -27,14 +25,13 @@ const AddPlace = () => {
 
   const mapRef = React.useRef<google.maps.Map | null>(null);
 
-  const onMapLoad = React.useCallback((map: google.maps.Map ) => {
-
+  const onMapLoad = React.useCallback((map: google.maps.Map) => {
     mapRef.current = map;
   }, []);
 
   const panTo = React.useCallback(
-    ({ lat, lng }:{lat: number, lng: number}) => {
-      if(mapRef.current !== null){
+    ({ lat, lng }: { lat: number; lng: number }) => {
+      if (mapRef.current !== null) {
         mapRef.current.panTo({ lat, lng });
         mapRef.current.setZoom(18);
       }
@@ -45,7 +42,7 @@ const AddPlace = () => {
   const setMarker = [coordinates];
 
   const onClickMap = (event: google.maps.MapMouseEvent | null) => {
-    if(event && event.latLng){
+    if (event && event.latLng) {
       setCoordinates({
         lat: event.latLng.lat(),
         lon: event.latLng.lng(),
@@ -62,21 +59,19 @@ const AddPlace = () => {
   };
 
   return (
-    <div className='container-add'>
-      <div className='search-header'>
+    <main className='container-add'>
+      <header className='search-header'>
         <FindMe panTo={panTo} />
         <Search panTo={panTo}></Search>
-      </div>
+      </header>
       <div className='add-place-container'>
-     
         <GoogleMap
           mapContainerClassName='map-add'
           mapContainerStyle={containerStyle}
           center={center}
           zoom={6}
-          onLoad={onMapLoad as ()=> void}
+          onLoad={onMapLoad as () => void}
           onClick={onClickMap}
-
         >
           {setMarker &&
             setMarker.map((coord) => {
@@ -97,12 +92,12 @@ const AddPlace = () => {
               );
             })}
         </GoogleMap>
-       
+
         <button type='button' className='btn-next' onClick={() => toAddForm()}>
           Next
         </button>
       </div>
-    </div>
+    </main>
   );
 };
 

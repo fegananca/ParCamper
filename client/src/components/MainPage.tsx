@@ -6,7 +6,7 @@ const MainPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className='wrapper'>
+    <main className='wrapper'>
       <video autoPlay muted loop id='myVideo'>
         <source src={mainVideo} type='video/mp4' />
       </video>
@@ -15,10 +15,10 @@ const MainPage = () => {
           navigate('/search');
         }}
       ></ButtonSearch>
-      <div className='logo-header'>
+      <header className='logo-header'>
         <h1 id='name'>PARCAMPER</h1>
-      </div>
-    </div>
+      </header>
+    </main>
   );
 };
 
