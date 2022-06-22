@@ -24,7 +24,7 @@ const containerStyle = {
 };
 
 //render map
-const Map = ({ places }: { places: OnAddPlace[] }) => {
+const Map = ({ places, fetchPlaces }: { places: OnAddPlace[], fetchPlaces: Function }) => {
   const [locationInfo, setLocationInfo] =
     useState<LocationInfoInterface | null>(null);
 
@@ -39,6 +39,7 @@ const Map = ({ places }: { places: OnAddPlace[] }) => {
   const mapRef = React.useRef<google.maps.Map | null>(null);
 
   const onMapLoad = React.useCallback((map: google.maps.Map) => {
+    fetchPlaces();
     mapRef.current = map;
   }, []);
 
@@ -52,6 +53,7 @@ const Map = ({ places }: { places: OnAddPlace[] }) => {
     },
     [mapRef]
   );
+
 
   return (
     <main className='container-map'>
@@ -80,8 +82,8 @@ const Map = ({ places }: { places: OnAddPlace[] }) => {
         onLoad={onMapLoad as () => void}
         options={mapOptions}
       >
-        {(places as unknown as FetchedPlace[]).map((data: FetchedPlace) => (
-          <Marker
+        {places && (places as unknown as FetchedPlace[]).map((data: FetchedPlace) => {
+          return(<Marker
             key={data._id}
             position={{
               lat: data._source.location.lat,
@@ -105,7 +107,7 @@ const Map = ({ places }: { places: OnAddPlace[] }) => {
               })
             }
           />
-        ))}
+          )})}
         {locationInfo ? (
           <InfoWindow
             options={{ maxWidth: 150 }}

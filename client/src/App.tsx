@@ -21,7 +21,8 @@ function App() {
   };
 
   useEffect(() => {
-    fetchPlaces();
+    // fetchPlaces();
+    console.log('data fetched')
   }, []);
 
   //route name add-next
@@ -29,7 +30,7 @@ function App() {
     <div className='container'>
       <Routes>
         <Route path='/' element={<MainPage />} />
-        <Route path='/search' element={<Map places={places} />} />
+        <Route path='/search' element={<Map places={places} fetchPlaces={fetchPlaces} />} />
         <Route path='/add' element={<AddPlace />} />
         <Route path='/add-form' element={<AddForm onAdd={addPlaces} />} />
       </Routes>
