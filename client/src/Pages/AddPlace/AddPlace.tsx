@@ -18,6 +18,14 @@ const containerStyle = {
   height: '40vw',
 };
 
+const mapOptions = {
+  mapTypeControl: false,
+  scaleControl: false,
+  streetViewControl: false,
+  fullscreenControl: false,
+  zoomControl: false,
+};
+
 const AddPlace = () => {
   const [coordinates, setCoordinates] = useState<Coordinates | string>('');
 
@@ -72,6 +80,7 @@ const AddPlace = () => {
           zoom={6}
           onLoad={onMapLoad as () => void}
           onClick={onClickMap}
+          options={mapOptions}
         >
           {setMarker &&
             setMarker.map((coord) => {
