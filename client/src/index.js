@@ -7,12 +7,12 @@ import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      {/* <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCOeUhal7c5RJXan7YPoRs0IyJTmZxi83M8&libraries=places'></script> */}
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>
+  //<React.StrictMode>
+  <BrowserRouter>
+    {/* <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCOeUhal7c5RJXan7YPoRs0IyJTmZxi83M8&libraries=places'></script> */}
+    <App />
+  </BrowserRouter>
+  //</React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
