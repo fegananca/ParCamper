@@ -1,5 +1,5 @@
 import Map from './Pages/Map/Map';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import AddPlace from './Pages/AddPlace/AddPlace';
 import AddForm from './Pages/AddForm/AddForm';
 import MainPage from './Pages/MainPage/MainPage';
@@ -20,17 +20,15 @@ function App() {
     setPlaces([...places, data]);
   };
 
-  useEffect(() => {
-    // fetchPlaces();
-    console.log('data fetched')
-  }, []);
-
   //route name add-next
   return (
     <div className='container'>
       <Routes>
         <Route path='/' element={<MainPage />} />
-        <Route path='/search' element={<Map places={places} fetchPlaces={fetchPlaces} />} />
+        <Route
+          path='/search'
+          element={<Map places={places} fetchPlaces={fetchPlaces} />}
+        />
         <Route path='/add' element={<AddPlace />} />
         <Route path='/add-form' element={<AddForm onAdd={addPlaces} />} />
       </Routes>

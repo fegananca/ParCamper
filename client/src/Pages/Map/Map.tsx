@@ -24,7 +24,13 @@ const containerStyle = {
 };
 
 //render map
-const Map = ({ places, fetchPlaces }: { places: OnAddPlace[], fetchPlaces: Function }) => {
+const Map = ({
+  places,
+  fetchPlaces,
+}: {
+  places: OnAddPlace[];
+  fetchPlaces: Function;
+}) => {
   const [locationInfo, setLocationInfo] =
     useState<LocationInfoInterface | null>(null);
 
@@ -38,10 +44,13 @@ const Map = ({ places, fetchPlaces }: { places: OnAddPlace[], fetchPlaces: Funct
 
   const mapRef = React.useRef<google.maps.Map | null>(null);
 
-  const onMapLoad = React.useCallback((map: google.maps.Map) => {
-    fetchPlaces();
-    mapRef.current = map;
-  }, []);
+  const onMapLoad = React.useCallback(
+    (map: google.maps.Map) => {
+      fetchPlaces();
+      mapRef.current = map;
+    },
+    [fetchPlaces]
+  );
 
   //Google function used for moving to any coordinates after a click on map
   const panTo = React.useCallback(
@@ -53,7 +62,6 @@ const Map = ({ places, fetchPlaces }: { places: OnAddPlace[], fetchPlaces: Funct
     },
     [mapRef]
   );
-
 
   return (
     <main className='container-map'>
@@ -82,32 +90,35 @@ const Map = ({ places, fetchPlaces }: { places: OnAddPlace[], fetchPlaces: Funct
         onLoad={onMapLoad as () => void}
         options={mapOptions}
       >
-        {places && (places as unknown as FetchedPlace[]).map((data: FetchedPlace) => {
-          return(<Marker
-            key={data._id}
-            position={{
-              lat: data._source.location.lat,
-              lng: data._source.location.lon,
-            }}
-            icon={{
-              url: parking,
-              origin: new window.google.maps.Point(0, 0),
-              anchor: new window.google.maps.Point(15, 15),
-              scaledSize: new window.google.maps.Size(30, 30),
-            }}
-            onClick={() =>
-              setLocationInfo({
-                photo: data._source.thumbnail,
-                title: data._source.subtitle,
-                numberOfReviews: data._source.filters.numberOfReviews,
-                rating: data._source.filters.rating,
-                review: data._source.filters.review,
-                lat: data._source.location.lat,
-                lng: data._source.location.lon,
-              })
-            }
-          />
-          )})}
+        {places &&
+          (places as unknown as FetchedPlace[]).map((data: FetchedPlace) => {
+            return (
+              <Marker
+                key={data._id}
+                position={{
+                  lat: data._source.location.lat,
+                  lng: data._source.location.lon,
+                }}
+                icon={{
+                  url: parking,
+                  origin: new window.google.maps.Point(0, 0),
+                  anchor: new window.google.maps.Point(15, 15),
+                  scaledSize: new window.google.maps.Size(30, 30),
+                }}
+                onClick={() =>
+                  setLocationInfo({
+                    photo: data._source.thumbnail,
+                    title: data._source.subtitle,
+                    numberOfReviews: data._source.filters.numberOfReviews,
+                    rating: data._source.filters.rating,
+                    review: data._source.filters.review,
+                    lat: data._source.location.lat,
+                    lng: data._source.location.lon,
+                  })
+                }
+              />
+            );
+          })}
         {locationInfo ? (
           <InfoWindow
             options={{ maxWidth: 150 }}
