@@ -2,18 +2,24 @@ import React from 'react';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
 import ButtonSearch from '../ButtonSearch/ButtonSearch';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import jwt_decode from 'jwt-decode'
+import { User, UserProps } from '../../Interfaces/User.interface';
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
-function Login() {
+function Login({user, setUser} : UserProps) {
   const navigate = useNavigate();
   function handleCallbackResponse(response: any) {
     const res = jwt_decode(response.credential)
     console.log(res)
-    setUser(res as Object)
+    const loggedUser = {
+      name: (res as User).name,
+      picture: (res as User).picture,
+    }
+    sessionStorage.setItem('user', JSON.stringify(loggedUser))
+    setUser(res as User)
   }
-  const [user, setUser] = useState<Object | null>();
+
   const buttonRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {

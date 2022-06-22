@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import './Map.css';
 import { GoogleMap, Marker, InfoWindow } from '@react-google-maps/api';
 import { useState } from 'react';
@@ -11,6 +11,7 @@ import {
 } from '../../Interfaces/Map.interface';
 import ButtonAdd from '../../components/ButtonAdd/ButtonAdd';
 import { OnAddPlace } from '../../Interfaces/AddForm.interface';
+import { User } from '../../Interfaces/User.interface';
 const parking = require('../../images/clarity_campervan-solid.png');
 
 const center = {
@@ -27,9 +28,13 @@ const containerStyle = {
 const Map = ({
   places,
   fetchPlaces,
+  user,
+  setUser,
 }: {
   places: OnAddPlace[];
   fetchPlaces: Function;
+  user: User | undefined;
+  setUser: Dispatch<SetStateAction<User | undefined>>;
 }) => {
   const [locationInfo, setLocationInfo] =
     useState<LocationInfoInterface | null>(null);
@@ -48,6 +53,10 @@ const Map = ({
     (map: google.maps.Map) => {
       fetchPlaces();
       mapRef.current = map;
+      if(!user){
+        const session = JSON.parse((sessionStorage.getItem('user') as string));
+        setUser(session);
+      }
     },
     [fetchPlaces]
   );
@@ -66,6 +75,12 @@ const Map = ({
   return (
     <main className='container-map'>
       <header className='header'>
+        {user && (
+          <>
+            <img src={user.picture} alt='profile' />
+            <h3>{user.name}</h3>
+          </>
+        )}
         <Search panTo={panTo} />
         <ButtonAdd></ButtonAdd>
       </header>
