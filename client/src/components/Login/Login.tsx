@@ -1,13 +1,19 @@
 import React from 'react';
 import './Login.css';
-import { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import ButtonSearch from '../ButtonSearch/ButtonSearch';
+import { useEffect, useRef, useState } from 'react';
+import jwt_decode from 'jwt-decode'
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
 function Login() {
+  const navigate = useNavigate();
   function handleCallbackResponse(response: any) {
-    console.log(response);
+    const res = jwt_decode(response.credential)
+    console.log(res)
+    setUser(res as Object)
   }
-
+  const [user, setUser] = useState<Object | null>();
   const buttonRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -25,10 +31,15 @@ function Login() {
     }
   }, []);
 
+
   return (
     <div>
-      HOLA
-      <div className='loginTest' ref={buttonRef}></div>
+      {!user ? <div className='loginTest' ref={buttonRef}></div>:
+            <ButtonSearch
+            callBack={() => {
+              navigate('/search');
+            }}
+          ></ButtonSearch>}
     </div>
   );
 }
