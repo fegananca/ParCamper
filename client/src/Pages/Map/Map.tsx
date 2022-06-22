@@ -11,6 +11,7 @@ import {
 } from '../../Interfaces/Map.interface';
 import ButtonAdd from '../../components/ButtonAdd/ButtonAdd';
 import { OnAddPlace } from '../../Interfaces/AddForm.interface';
+import { fetchAllPlaces } from '../../Services/Services';
 const parking = require('../../images/clarity_campervan-solid.png');
 
 const center = {
