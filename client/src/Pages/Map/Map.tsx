@@ -53,8 +53,8 @@ const Map = ({
     (map: google.maps.Map) => {
       fetchPlaces();
       mapRef.current = map;
-      if(!user){
-        const session = JSON.parse((sessionStorage.getItem('user') as string));
+      if (!user) {
+        const session = JSON.parse(sessionStorage.getItem('user') as string);
         setUser(session);
       }
     },
@@ -76,10 +76,10 @@ const Map = ({
     <main className='container-map'>
       <header className='header'>
         {user && (
-          <>
+          <div className='userDetails'>
             <img src={user.picture} alt='profile' />
             <h3>{user.name}</h3>
-          </>
+          </div>
         )}
         <Search panTo={panTo} />
         <ButtonAdd></ButtonAdd>
