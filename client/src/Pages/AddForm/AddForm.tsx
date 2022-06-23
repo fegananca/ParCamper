@@ -28,14 +28,14 @@ const AddForm = ({ onAdd }: { onAdd: (arg0: OnAddPlace) => void }) => {
     setReviewBox(!showReviewBox);
   };
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     onAdd({
       location: coordinates as Coordinates,
       subtitle,
       rating,
       review,
       thumbnail: image,
-    });
+    })
     setSubtitle('');
     setRating(0);
     setReview('');

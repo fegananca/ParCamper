@@ -49,17 +49,15 @@ const Map = ({
 
   const mapRef = React.useRef<google.maps.Map | null>(null);
 
-  const onMapLoad = React.useCallback(
-    (map: google.maps.Map) => {
-      fetchPlaces();
-      mapRef.current = map;
-      if (!user) {
-        const session = JSON.parse(sessionStorage.getItem('user') as string);
-        setUser(session);
-      }
-    },
-    [fetchPlaces]
-  );
+  const onMapLoad = React.useCallback(async (map: google.maps.Map) => {
+    if (mapRef.current) mapRef.current = null;
+    await fetchPlaces();
+    mapRef.current = map;
+    if (!user) {
+      const session = JSON.parse(sessionStorage.getItem('user') as string);
+      setUser(session);
+    }
+  }, []);
 
   //Google function used for moving to any coordinates after a click on map
   const panTo = React.useCallback(
@@ -102,7 +100,7 @@ const Map = ({
         mapContainerStyle={containerStyle}
         center={center}
         zoom={7}
-        onLoad={onMapLoad as () => void}
+        onLoad={onMapLoad as () => Promise<void>}
         options={mapOptions}
       >
         {places &&

@@ -13,9 +13,9 @@ const addNewPlaces = async (place) => {
 const fetchAllPlaces = async () => {
   const res = await fetch(URL + `/places`);
   if (res.status < 400) {
-    const result = await res.json()
-    console.log(result)
-    return result;}
+    const result = await res.json();
+    return result;
+  }
   return Promise.reject(res);
 };
 

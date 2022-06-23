@@ -19,16 +19,24 @@ function App() {
   const addPlaces = async (place: OnAddPlace) => {
     const data = await addNewPlaces(place);
     setPlaces([...places, data]);
+    await fetchPlaces();
   };
 
   //route name add-next
   return (
     <div className='container'>
       <Routes>
-        <Route path='/' element={<MainPage user={user} setUser={setUser}/>} />
+        <Route path='/' element={<MainPage user={user} setUser={setUser} />} />
         <Route
           path='/search'
-          element={<Map user={user} setUser={setUser} places={places} fetchPlaces={fetchPlaces} />}
+          element={
+            <Map
+              user={user}
+              setUser={setUser}
+              places={places}
+              fetchPlaces={fetchPlaces}
+            />
+          }
         />
         <Route path='/add' element={<AddPlace />} />
         <Route path='/add-form' element={<AddForm onAdd={addPlaces} />} />
