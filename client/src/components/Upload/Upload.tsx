@@ -27,7 +27,7 @@ const Upload = ({ setImage, previewSource, setPreviewSource }: UploadProps) => {
     const formData = new FormData();
     formData.append('image', file);
     try {
-      const url = await postImage(formData);
+      const url = await postImage(formData as FormData);
       setImage(url);
       setFileInputState('');
       setPreviewSource(url);

@@ -1,6 +1,7 @@
+import { OnAddPlace } from '../Interfaces/AddForm.interface';
 const URL = 'http://localhost:3001';
 
-const addNewPlaces = async (place) => {
+const addNewPlaces = async (place: OnAddPlace) => {
   const res = await fetch(URL + `/places`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -19,7 +20,7 @@ const fetchAllPlaces = async () => {
   return Promise.reject(res);
 };
 
-const postImage = async (formData) => {
+const postImage = async (formData: FormData) => {
   const res = await fetch(URL + `/images`, {
     method: 'POST',
     body: formData,
