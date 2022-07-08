@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# ParCamper
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Traveling in campers can be stressful if not well planned.
 
-## Available Scripts
+ParCamper is a webpage where you can find and share places to park your motorhome, with reviews and photos added by users that already had enjoyed the place. With ParCamper you can add the best spots hidden in the nature and share with the ‘campers community’ by just clicking on the map and fill a quick form.
 
-In the project directory, you can run:
+## Tech Stack
 
-### `npm start`
+MongoDB - Mongoose
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Express
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+React
 
-### `npm test`
+NodeJs
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+S3 - AWS
 
-### `npm run build`
+Google Maps API
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Clone the repository on your machine.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### **Start the backend**
 
-### `npm run eject`
+1. Install the dependencies by running the following while in the **server** folder
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+`npm install`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Start the server with
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+`node index.js`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+You should see the following in the terminal to show that the **server** is up and running
 
-## Learn More
+`Server running 3001`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### **Start the front end**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Install the dependencies by running the following while in the **client** folder
 
-### Code Splitting
+`npm install`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. Start the front end with
 
-### Analyzing the Bundle Size
+`npm start`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The app should open in your browser at localhost:3000 (The default React PORT)
