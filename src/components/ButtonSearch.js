@@ -8,8 +8,8 @@ const ButtonSearch = () => {
         <Icon
           className="enter-icon"
           icon="akar-icons:map"
-          width={20}
-          height={20}
+          width={30}
+          height={30}
         />
       </Link>
       <p id="search-map">Map</p>

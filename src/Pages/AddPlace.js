@@ -1,10 +1,10 @@
 import { GoogleMap, Marker } from '@react-google-maps/api';
-import Search from './Search';
+import Search from '../components/Search';
 import React, { useState } from 'react';
-import FindMe from './FindMe';
+import FindMe from '../components/FindMe';
 import './addPlace.css';
 import { useNavigate } from 'react-router-dom';
-import parking from '../Pages/images/clarity_campervan-solid.png';
+import parking from '../media/clarity_campervan-solid.png';
 
 const center = {
   lat: 40.4637,

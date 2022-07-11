@@ -1,11 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
-import './addPlace.css';
+import '../Pages/addPlace.css';
 import { Icon } from '@iconify/react';
 
 const Upload = ({ setImage, previewSource, setPreviewSource }) => {
   const [fileInputState, setFileInputState] = useState('');
-  // const [previewSource, setPreviewSource] = useState('');
   const [selectedFile, setSelectedFile] = useState();
 
   const handleFileInputChange = (e) => {
@@ -25,7 +24,6 @@ const Upload = ({ setImage, previewSource, setPreviewSource }) => {
   };
 
   const handleSubmitFile = (e) => {
-    // e.preventDefault();
     if (!selectedFile) return;
     const reader = new FileReader();
     reader.readAsDataURL(selectedFile);
@@ -55,12 +53,7 @@ const Upload = ({ setImage, previewSource, setPreviewSource }) => {
   return (
     <>
       <label className="label-upload" htmlFor="fileInput">
-        <Icon
-          className="icon-upload"
-          icon="uil:image-upload"
-          height={100}
-          width={100}
-        />
+        <Icon className="icon-upload" icon="uil:image-upload" />
         <p id="upload-label">Upload an image</p>
         <form onSubmit={handleSubmitFile} className="form">
           <input

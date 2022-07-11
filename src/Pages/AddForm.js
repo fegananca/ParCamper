@@ -1,9 +1,8 @@
-import Rating from './Rating';
+import Rating from '../components/Rating';
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Upload from './Upload';
+import Upload from '../components/Upload';
 import { Icon } from '@iconify/react';
-// import parking from '../Pages/images/clarity_campervan-solid.png';
 import './addPlace.css';
 
 const AddForm = ({ onAdd }) => {
@@ -23,7 +22,6 @@ const AddForm = ({ onAdd }) => {
   const toogleReview = () => setReviewBox(!showReviewBox);
 
   const onSubmit = (e) => {
-    // e.preventDefault();
     onAdd({
       location: coordinates,
       subtitle,
@@ -50,8 +48,8 @@ const AddForm = ({ onAdd }) => {
         <div className="next-header">
           <Icon
             icon="clarity:campervan-solid"
-            width={130}
-            height={130}
+            width={100}
+            height={100}
             className="icon-logo"
           />
           <span>Help us grow our community</span>
@@ -66,7 +64,6 @@ const AddForm = ({ onAdd }) => {
                   setPreviewSource={setPreviewSource}
                   setImage={setImage}
                 ></Upload>
-                {/* <div className="img-upload">{image}</div> */}
               </div>
             </li>
             <li>
@@ -75,8 +72,8 @@ const AddForm = ({ onAdd }) => {
                   <Icon
                     classname="icon-desc"
                     icon="ooui:text-summary-ltr"
-                    height={100}
-                    width={100}
+                    height={70}
+                    width={70}
                   />
                   <p id="upload-label">Brief description</p>
                 </button>
@@ -93,7 +90,7 @@ const AddForm = ({ onAdd }) => {
             <li>
               <div className="menu-bar" id="menu-3">
                 <button className="btn-2" onClick={toogleReview}>
-                  <Icon icon="uil:feedback" height={100} width={100} />
+                  <Icon className="icon-feedback" icon="uil:feedback" />
                   <p id="feedback-label">Feedback</p>
                 </button>
                 <ul>
@@ -118,8 +115,6 @@ const AddForm = ({ onAdd }) => {
                     <Icon
                       className="icon-submit"
                       icon="material-symbols:download-done-outline"
-                      height={50}
-                      width={50}
                     />
                   </div>
                   <span id="submit-label">Submit</span>

@@ -1,5 +1,4 @@
 import React, { useMemo, useState } from 'react';
-import PropTypes from 'prop-types';
 import { Icon } from '@iconify/react';
 
 const Rating = ({ count, rating, color, onRating }) => {
@@ -29,18 +28,8 @@ const Rating = ({ count, rating, color, onRating }) => {
           onMouseLeave={() => setHoverRating(0)}
         />
       ));
-  }, [count, rating, hoverRating]);
+  }, [count, rating, hoverRating]); // eslint-disable-line
   return <div className="rating">{starRating}</div>;
-};
-
-Rating.propTypes = {
-  count: PropTypes.number,
-  rating: PropTypes.number,
-  onchange: PropTypes.func,
-  color: {
-    filled: PropTypes.string,
-    unfilled: PropTypes.string,
-  },
 };
 
 Rating.defaultProps = {

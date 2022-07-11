@@ -1,10 +1,10 @@
 import React from 'react';
 import { GoogleMap, Marker, InfoWindow } from '@react-google-maps/api';
 import { useState } from 'react';
-import LocationInfo from './LocationInfo';
-import Search from './Search';
-import ButtonAdd from './ButtonAdd';
-import parking from '../Pages/images/clarity_campervan-solid.png';
+import LocationInfo from '../components/LocationInfo';
+import Search from '../components/Search';
+import ButtonAdd from '../components/ButtonAdd';
+import parking from '../media/clarity_campervan-solid.png';
 import { Icon } from '@iconify/react';
 
 const center = {
@@ -34,12 +34,6 @@ const Map = ({ places }) => {
   return (
     <div className="container-map">
       <div className="header">
-        {/* <Icon
-          icon="clarity:campervan-solid"
-          width={90}
-          height={90}
-          className="icon-logo-map"
-        /> */}
         <Search panTo={panTo} />
         <ButtonAdd></ButtonAdd>
       </div>

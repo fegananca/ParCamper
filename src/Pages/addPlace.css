@@ -1,0 +1,273 @@
+.navbar {
+  background-image: url('/src/media/pexels-sungmu-heo-2689631.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.menu {
+  float: unset;
+  min-height: 100vh;
+  width: 100%;
+  padding-left: 3%;
+}
+
+.next-header {
+  background-color: rgb(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+}
+
+.next-header span {
+  font-family: 'Tiro Telugu', serif;
+  font-size: 60px;
+  color: #323131;
+  margin-left: 2%;
+}
+
+.icon-logo {
+  color: #323131;
+  border: 2px solid #323131;
+  border-radius: 100px;
+  padding: 10px;
+}
+
+.search-header {
+  display: flex;
+  padding: 20px;
+}
+
+.map-add {
+  margin-top: 1%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.form-container {
+  margin-top: 1%;
+}
+
+.title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 80%;
+}
+
+.btn-next {
+  border: transparent;
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+  background-color: #ecdd7b;
+  width: 100px;
+  padding: 8px;
+  font-family: 'Poppins', sans-serif;
+  color: #555555;
+  margin-left: 10px;
+}
+
+.btn-next:hover {
+  transform: scale(1.1);
+  color: rgb(60, 58, 58);
+  font-weight: bold;
+}
+
+.next-header {
+  padding: 50px;
+}
+
+.locate {
+  background-color: transparent;
+  border-radius: 20px;
+  border: transparent;
+}
+
+.search-bar-icons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #555555;
+}
+
+/* ############################################## FORM ############################################### */
+
+#fileInput {
+  display: none;
+}
+
+ul {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.menu li {
+  list-style: none;
+}
+
+li {
+  padding: 10px;
+  height: 90%;
+}
+
+.icon-upload {
+  margin-left: 2%;
+  width: 6.5vw;
+  height: 6.5vw;
+}
+
+.icon-upload:hover {
+  color: lightgray;
+}
+
+.img-input {
+  margin-left: 5%;
+  border-radius: 20px;
+}
+
+#upload-label,
+#feedback {
+  margin-left: 5%;
+  text-align: left;
+}
+
+#feedback-label {
+  margin-left: 5%;
+}
+
+.add-subtitle,
+.add-review {
+  width: 85%;
+  height: 100%;
+  border-radius: 10px;
+  border-color: transparent;
+  box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.3);
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  color: grey;
+  background-color: white;
+  margin-left: 1%;
+  overflow: scroll;
+}
+
+.add-subtitle,
+.add-review::placeholder {
+  padding-top: 10px;
+  padding-left: 10px;
+  font-size: 1.5vw;
+}
+
+.rating {
+  cursor: pointer;
+  margin-left: 1%;
+}
+
+.add-subtitle textarea {
+  color: white;
+}
+
+.menu-bar ul {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.label-upload {
+  background-color: #ecdd7b;
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5vw;
+  color: #555555;
+  border: transparent;
+  border-radius: 10px;
+  width: 27.5%;
+  box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+}
+
+.btn-1,
+.btn-2 {
+  background-color: #ecdd7b;
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5vw;
+  color: #555555;
+  border: transparent;
+  border-radius: 10px;
+  width: 30%;
+  box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  opacity: 0.5;
+  padding: 1%;
+}
+
+.label-form {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  margin-left: 2.5%;
+  margin-top: 2%;
+}
+
+#form-submit:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+#menu-2,
+#menu-3,
+#menu-1 {
+  display: flex;
+  height: 10vw;
+  width: 100vw;
+}
+
+#menu-4 span {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: 8%;
+}
+
+.icon-submit {
+  margin-left: 15px;
+  height: 3vw;
+  width: 3vw;
+}
+.icon-feedback {
+  height: 5.5vw;
+  width: 5.5vw;
+}
+
+.display-none {
+  display: none;
+}
+
+#form-submit {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  border-color: transparent;
+  box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #ecdd7b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #555555;
+  cursor: pointer;
+  opacity: 0.5;
+  padding-right: 3%;
+}
+
+#submit-label {
+  font-size: 2vw;
+}
+
+.btn-1:hover,
+.btn-2:hover,
+.label-upload:hover {
+  opacity: 1;
+}
