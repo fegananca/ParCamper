@@ -13,6 +13,7 @@ ParCamper is a webpage where you can find and share places to park your motorhom
 <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/mongodb-colored.svg" width="36" height="36" alt="MongoDB" /></a>
 <a href="https://www.heroku.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/heroku-colored.svg" width="36" height="36" alt="Heroku" /></a>
 <a href="https://www.figma.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/figma-colored.svg" width="36" height="36" alt="Figma" /></a>
+ <a href="https://aws.amazon.com/s3/" target="_blank" rel="noreferrer"><img src="file:///Users/fernandarodrigues/Downloads/logos_aws-s3.svg" width="36" height="36" alt="Amazon S3" /></a>
 </p>
 
 ## Getting Start
