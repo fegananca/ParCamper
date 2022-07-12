@@ -37,7 +37,7 @@ const Upload = ({ setImage, previewSource, setPreviewSource }) => {
     formData.append('image', file);
 
     try {
-      const res = await fetch('http://localhost:3001/images', {
+      const res = await fetch('https://parcamper-server.herokuapp.com/images', {
         method: 'POST',
         body: formData,
       });
