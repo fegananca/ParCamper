@@ -18,6 +18,8 @@ S3 - AWS
 
 Google Maps API
 
+Heroku
+
 ## Getting Start
 
 ### Clone the repository on your machine.
