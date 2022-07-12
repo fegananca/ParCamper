@@ -1,6 +1,6 @@
 const express = require('express');
 const router = require('./router/router.js');
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 const cors = require('cors');
 
 //start the app
@@ -11,6 +11,7 @@ app.use(express.json());
 app.use(router);
 
 //listen
+
 app.listen(PORT, () => {
   console.log(`Connected to port ${PORT}`);
 });

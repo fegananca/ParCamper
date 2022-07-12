@@ -9,13 +9,15 @@ function App() {
   const [places, setPlaces] = useState([]);
 
   const fetchPlaces = async () => {
-    const fetchPlaces = await fetch('http://localhost:3001/places');
+    const fetchPlaces = await fetch(
+      'https://parcamper-server.herokuapp.com/places'
+    );
     const data = await fetchPlaces.json();
     setPlaces(data);
   };
 
   const addPlaces = async (place) => {
-    const res = await fetch('http://localhost:3001/places', {
+    const res = await fetch('https://parcamper-server.herokuapp.com/places', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(place),

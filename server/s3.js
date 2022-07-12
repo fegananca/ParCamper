@@ -1,4 +1,6 @@
-require('dotenv').config();
+require('dotenv').config({
+  path: '../.env',
+});
 const fs = require('fs');
 const S3 = require('aws-sdk/clients/s3');
 
