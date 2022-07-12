@@ -49,6 +49,7 @@ const postImages = async (req, res) => {
   try {
     const file = req.file;
     const result = await uploadFile(file);
+    console.log(result);
     // const postimage = await places.create({
     //   _source: {
     //     thumbnail: result.Location,
