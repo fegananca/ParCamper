@@ -1,6 +1,9 @@
 {
   "name": "my-app",
   "version": "0.1.0",
+  "engines": {
+    "node": "17.7.2"
+  },
   "private": true,
   "dependencies": {
     "@iconify/icons-mdi": "^1.2.17",
