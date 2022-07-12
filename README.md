@@ -5,6 +5,7 @@ Traveling in campers can be stressful if not well planned.
 ParCamper is a webpage where you can find and share places to park your motorhome, with reviews and photos added by users that already had enjoyed the place. With ParCamper you can add the best spots hidden in the nature and share with the ‘campers community’ by just clicking on the map and fill a quick form.
 
 ## Tech stack
+
 <p align="left">
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg" width="36" height="36" alt="JavaScript" /></a>
 <a href="https://reactjs.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/react-colored.svg" width="36" height="36" alt="React" /></a>
@@ -16,8 +17,6 @@ ParCamper is a webpage where you can find and share places to park your motorhom
 <a href="https://aws.amazon.com/s3/" target="_blank" rel="noreferrer"><img src="https://res.cloudinary.com/dcsyzmig8/image/upload/v1657638823/logos_aws-s3_hru1sb.svg" width="36" height="36" alt="Amazon S3" /></a>
  <a href="https://developers.google.com/maps" target="_blank" rel="noreferrer"><img src="https://res.cloudinary.com/dcsyzmig8/image/upload/v1657638937/logos_google-maps_mtiwpx.svg" width="36" height="36" alt="Google Maps Platform" /></a>
 </p>
-
-Heroku
 
 ## Getting Start
 
