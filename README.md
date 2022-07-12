@@ -1,6 +1,6 @@
 # ParCamper
 
-- 🚀 Check it out [ParCamper](http://parcamper.com)
+- 🚀 Check it out [ParCamper](http://www.parcamper.com/)
 
 Traveling in campers can be stressful if not well planned.
 
