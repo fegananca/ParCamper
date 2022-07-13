@@ -48,6 +48,7 @@ const getImages = async (req, res) => {
 const postImages = async (req, res) => {
   try {
     const file = req.file;
+    console.log(file);
     const result = await uploadFile(file);
     console.log(result);
     // const postimage = await places.create({
