@@ -41,7 +41,8 @@ const Upload = ({ setImage, previewSource, setPreviewSource }) => {
         method: 'POST',
         body: formData,
       });
-      const url = await res.text();
+      const url = await res.json();
+      console.log(url, 'URL');
       setImage(url);
       setFileInputState('');
       setPreviewSource(url);
